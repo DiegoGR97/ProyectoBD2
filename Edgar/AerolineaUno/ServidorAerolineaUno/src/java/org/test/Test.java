@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.data.Vuelos;
 import org.db.Conexion;
 
@@ -21,27 +23,14 @@ public class Test {
     public static void main(String[] args) {
         Conexion conexion = new Conexion();
         Connection connection = conexion.conectar();
+        
         ResultSet rs = null;
-        Vuelos vuelos = null;
-        List<Vuelos> vuelosData = new ArrayList<Vuelos>();
         try {
-            rs = connection.createStatement().executeQuery("SELECT id_vuelo, origen_vuelo, destino_vuelo, capacidad_vuelo, boletos_comprados, fecha_partida, fecha_llegada, precio_unitario FROM vuelos");
-            while(rs.next())
-            {
-                vuelos = new Vuelos();
-                vuelos.setId_vuelo(rs.getInt("id_vuelo"));
-                vuelos.setOrigen_vuelo(rs.getString("origen_vuelo"));
-                vuelos.setDestino_vuelo(rs.getString("destino_vuelo"));
-                vuelos.setCapacidad_vuelo(rs.getInt("capacidad_vuelo"));
-                vuelos.setBoletos_comprados(rs.getInt("boletos_comprados"));
-                vuelos.setFecha_partida(rs.getString("fecha_partida"));
-                vuelos.setFecha_llegada(rs.getString("fecha_llegada"));
-                vuelos.setPrecio_unitario(rs.getDouble("precio_unitario"));
-                vuelosData.add(vuelos);
-            }
-            System.out.println(vuelosData);
+            rs = connection.createStatement().executeQuery("SELECT * FROM vuelos");
+            rs.next();
+            System.out.println(rs.getString(2));
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

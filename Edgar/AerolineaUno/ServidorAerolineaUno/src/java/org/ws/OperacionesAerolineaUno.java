@@ -26,7 +26,7 @@ public class OperacionesAerolineaUno {
      * This is a sample web service operation
      */
     @WebMethod(operationName = "getVuelos")
-    public String getVuelos() {
+    public List<Vuelos> getVuelos() {
         Conexion conexion = new Conexion();
         Connection connection = conexion.conectar();
         ResultSet rs = null;
@@ -47,10 +47,10 @@ public class OperacionesAerolineaUno {
                 vuelos.setPrecio_unitario(rs.getDouble("precio_unitario"));
                 vuelosData.add(vuelos);
             }
-            return "Funciono";
+            return vuelosData;
         } catch (SQLException ex) {
             ex.printStackTrace();
-            return ex+"";
+            return null;
         }
     }
 }
