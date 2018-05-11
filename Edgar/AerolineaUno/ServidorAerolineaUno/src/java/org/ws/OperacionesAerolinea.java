@@ -26,7 +26,8 @@ import org.db.VuelosDao;
 @WebService(serviceName = "OperacionesAerolinea")
 public class OperacionesAerolinea {
     @WebMethod(operationName = "getVuelos")
-    public List<Vuelos> getVuelos() {
+    public List<Vuelos> getVuelos() {        
+        
         Conexion conexion = new Conexion();
         Connection connection = conexion.conectar();
         ResultSet rs = null;

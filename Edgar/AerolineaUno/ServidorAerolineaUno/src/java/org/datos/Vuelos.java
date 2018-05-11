@@ -112,5 +112,15 @@ public class Vuelos
         this.precio_unitario = precio_unitario;
     }
     
-   
+    @Override
+   public String toString(){
+       return id_vuelo + " " + 
+               origen_vuelo + " " +
+               destino_vuelo + " " +
+               capacidad_vuelo + " " +
+               boletos_comprados + " " +
+               fecha_partida + " " +
+               fecha_llegada + " " +
+               precio_unitario;    
+   }
 }
