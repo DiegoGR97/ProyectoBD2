@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://192.168.0.23:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="wsdl/192.168.0.23_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
+    <system systemId="file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/src/conf/xml-resources/web-services/WebServiceClienteAgencia/wsdl/192.168.0.23_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl" uri="wsdl/OperacionesAerolinea.wsdl"/>
+    <system systemId="http://192.168.0.23:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.0.23_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
+</catalog>
