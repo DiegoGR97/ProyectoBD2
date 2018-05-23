@@ -1,0 +1,63 @@
+
+UNO
+        <%
+           for (int i = 0; i < VuelosTraidosSeleccionados2.size(); i++) {
+       %>
+
+       <tr>
+           <td>2</td>
+           <td><%out.println(VuelosTraidosSeleccionados2.get(i).getIdVuelo());%></td>
+           <td><%out.println(VuelosTraidosSeleccionados2.get(i).getOrigenVuelo());%></td>
+           <td><%out.println(VuelosTraidosSeleccionados2.get(i).getDestinoVuelo());%></td>
+           <td><%out.println(VuelosTraidosSeleccionados2.get(i).getCapacidadVuelo());%></td>
+           <td><%out.println(VuelosTraidosSeleccionados2.get(i).getBoletosComprados());%></td>
+           <td><%out.println(VuelosTraidosSeleccionados2.get(i).getFechaPartida());%></td>
+           <td><%out.println(VuelosTraidosSeleccionados2.get(i).getFechaLlegada());%></td>
+           <td><%out.println(VuelosTraidosSeleccionados2.get(i).getPrecioUnitario());%> </td> 
+       </tr>  
+       <%
+           }
+       %>
+
+
+DOS
+
+
+
+        <%
+           for (int i = 0; i < VuelosTraidos2.size(); i++) {
+       %>
+
+       <tr>
+           <td>2</td>
+           <td><%out.println(VuelosTraidos2.get(i).getIdVuelo());%></td>
+           <td><%out.println(VuelosTraidos2.get(i).getOrigenVuelo());%></td>
+           <td><%out.println(VuelosTraidos2.get(i).getDestinoVuelo());%></td>
+           <td><%out.println(VuelosTraidos2.get(i).getCapacidadVuelo());%></td>
+           <td><%out.println(VuelosTraidos2.get(i).getBoletosComprados());%></td>
+           <td><%out.println(VuelosTraidos2.get(i).getFechaPartida());%></td>
+           <td><%out.println(VuelosTraidos2.get(i).getFechaLlegada());%></td>
+           <td><%out.println(VuelosTraidos2.get(i).getPrecioUnitario());%> </td> 
+       </tr>  
+       <%
+           }
+       %>
+
+TRES
+
+
+        <%
+            for (int i = 0; i < ClientesTraidos2.size(); i++) {
+        %>
+
+        <tr>
+            <td>2</td>
+            <td><%out.println(ClientesTraidos2.get(i).getIdCliente());%></td>
+            <td><%out.println(ClientesTraidos2.get(i).getNombreCliente());%></td>
+            <td><%out.println(ClientesTraidos2.get(i).getApellidoCliente());%></td>
+            <td><%out.println(ClientesTraidos2.get(i).getEmailCliente());%></td>
+            <td><%out.println(ClientesTraidos2.get(i).getNacionalidad());%></td>
+        </tr>  
+        <%
+            }
+        %>
