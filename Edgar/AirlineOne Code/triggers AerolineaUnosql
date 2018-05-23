@@ -1,0 +1,8 @@
+create or replace trigger agencias_viajes_bi_ai
+before insert on agencias_viajes
+for each row
+begin
+    select agencias_viajes_seq.NEXTVAL
+    into :new.id_agencia_viaje
+    from dual;
+end;
