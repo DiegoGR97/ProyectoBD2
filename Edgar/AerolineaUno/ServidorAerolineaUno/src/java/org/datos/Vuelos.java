@@ -5,12 +5,6 @@
  */
 package org.datos;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author e-emi
@@ -112,5 +106,15 @@ public class Vuelos
         this.precio_unitario = precio_unitario;
     }
     
-   
+    @Override
+   public String toString(){
+       return id_vuelo + " " + 
+               origen_vuelo + " " +
+               destino_vuelo + " " +
+               capacidad_vuelo + " " +
+               boletos_comprados + " " +
+               fecha_partida + " " +
+               fecha_llegada + " " +
+               precio_unitario;    
+   }
 }
