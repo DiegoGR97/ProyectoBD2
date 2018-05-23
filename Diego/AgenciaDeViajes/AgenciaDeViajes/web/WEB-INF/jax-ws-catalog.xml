@@ -3,4 +3,12 @@
     <system systemId="http://192.168.0.23:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="wsdl/192.168.0.23_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
     <system systemId="file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/src/conf/xml-resources/web-services/WebServiceClienteAgencia/wsdl/192.168.0.23_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl" uri="wsdl/OperacionesAerolinea.wsdl"/>
     <system systemId="http://192.168.0.23:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.0.23_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
+    <system systemId="http://172.16.71.103:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="wsdl/172.16.71.103_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
+    <system systemId="http://172.16.71.103:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/172.16.71.103_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
+    <system systemId="http://192.168.43.92:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="wsdl/192.168.43.92_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
+    <system systemId="http://192.168.43.92:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.43.92_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
+    <system systemId="http://192.168.0.18:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="wsdl/192.168.0.18_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
+    <system systemId="http://192.168.0.18:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.0.18_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
+    <system systemId="http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="wsdl/192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
+    <system systemId="http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
 </catalog>

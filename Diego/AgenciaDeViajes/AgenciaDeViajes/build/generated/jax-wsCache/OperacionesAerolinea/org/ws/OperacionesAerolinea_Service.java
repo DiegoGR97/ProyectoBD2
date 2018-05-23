@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "OperacionesAerolinea", targetNamespace = "http://ws.org/", wsdlLocation = "http://192.168.0.23:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL")
+@WebServiceClient(name = "OperacionesAerolinea", targetNamespace = "http://ws.org/", wsdlLocation = "http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL")
 public class OperacionesAerolinea_Service
     extends Service
 {
@@ -30,7 +30,7 @@ public class OperacionesAerolinea_Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://192.168.0.23:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL");
+            url = new URL("http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

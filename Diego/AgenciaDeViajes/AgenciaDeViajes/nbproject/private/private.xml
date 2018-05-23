@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/web/index.jsp</file>
-            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/src/java/Data/Usuario_Agencia.java</file>
-            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/src/java/ProbarConexion/Conexion.java</file>
-            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/src/java/AgenciaDeViajes/Aerolinea_getVuelos.java</file>
-            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/src/java/AgenciaDeViajes/WebServiceAgencia.java</file>
-            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/src/java/ProbarConexion/ProbandoConexion.java</file>
+            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/web/RegistrarUsuario.jsp</file>
+            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/web/InsertarUsuario.jsp</file>
+            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/web/ConsultarVuelos.jsp</file>
+            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/web/RegistrarCliente.jsp</file>
+            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/src/java/AgenciaDeViajes/Aerolinea_getVuelos_2.java</file>
+            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/web/CancelarBoleto.jsp</file>
+            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/web/Home.jsp</file>
+            <file>file:/D:/Google%20Drive/Universidad/7mo%20Semestre/Bases%20de%20Datos%202/Proyecto%20BD2/Codigo%20Proyecto%20BD2/Mi%20Propio%20Código/Diego/AgenciaDeViajes/AgenciaDeViajes/web/ComprarVuelo.jsp</file>
         </group>
     </open-files>
 </project-private>
