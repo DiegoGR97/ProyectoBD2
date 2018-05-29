@@ -394,6 +394,10 @@
                                         <label>ID de Cliente de Aerolínea:</label>
                                         <input  id="ID_Cliente" name="ID_Cliente_Aero" type="text" class="form-control"  onchange="cargarListado();" value= "" > 
                                     </div>
+                                    <div class="col-md-6">
+                                        <label>Usuario de Agencia que Compra:</label>
+                                        <input  id="Usuario_Agencia" name="Usuario_Agencia" type="text" class="form-control"  onchange="cargarListado();" value= "" > 
+                                    </div>
 
                                     <div class="col-md-6">
                                         <br>
@@ -404,7 +408,7 @@
                                         <br>
 
                                         <%
-                                            String ID_AerolineaComprar = "", ID_Vuelo = "", ID_Viaje_Compra = "", ID_Cliente_Aero = "", boletoIngresado = "";
+                                            String ID_AerolineaComprar = "", ID_Vuelo = "", ID_Viaje_Compra = "", ID_Cliente_Aero = "", boletoIngresado = "", Usuario_Agencia = "";
                                             if (request.getParameter("ID_AerolineaComprar") != null || ID_AerolineaComprar != "") {
                                                 ID_AerolineaComprar = request.getParameter("ID_AerolineaComprar");
                                             }
@@ -417,11 +421,14 @@
                                             if (request.getParameter("ID_Cliente_Aero") != null || ID_Cliente_Aero != "") {
                                                 ID_Cliente_Aero = request.getParameter("ID_Cliente_Aero");
                                             }
+                                            if (request.getParameter("Usuario_Agencia") != null || Usuario_Agencia != "") {
+                                                Usuario_Agencia = request.getParameter("Usuario_Agencia");
+                                            }
                                         %>
 
                                         <%
-                                            if (ID_AerolineaComprar != null && ID_Vuelo != null && ID_Viaje_Compra != null && ID_Cliente_Aero != null
-                                                    && ID_AerolineaComprar != "" && ID_Vuelo != "" && ID_Viaje_Compra != "" && ID_Cliente_Aero != "") {
+                                            if (ID_AerolineaComprar != null && ID_Vuelo != null && ID_Viaje_Compra != null && ID_Cliente_Aero != null && Usuario_Agencia != null
+                                                    && ID_AerolineaComprar != "" && ID_Vuelo != "" && ID_Viaje_Compra != "" && ID_Cliente_Aero != "" && Usuario_Agencia != "") {
                                                 try {
                                                     if (ID_AerolineaComprar.equals("1")) { //Si no funciona, probar con idaerolinea.equals("1")
                                                         boletoIngresado = WebServicesAerolinea_Cliente.comprarBoletoAgenciaUno(ID_Vuelo, ID_Cliente_Aero);
@@ -435,11 +442,12 @@
                                                     PreparedStatement ps2 = null;
                                                     try {
                                                         ps2 = connection2.prepareStatement("INSERT INTO boletos_comprados_agencia "
-                                                                + "(id_cliente_aerolinea, id_aerolinea, no_boleto, id_viaje_agencia, fecha_compra_boleto) values (?,?,?,?, sysdate)");
+                                                                + "(id_cliente_aerolinea, id_aerolinea, no_boleto, id_viaje_agencia, usuario_agencia, fecha_compra_boleto) values (?,?,?,?,?, sysdate)");
                                                         ps2.setInt(1, Integer.parseInt(ID_Cliente_Aero));
                                                         ps2.setInt(2, Integer.parseInt(ID_AerolineaComprar));
                                                         ps2.setString(3, boletoIngresado);
                                                         ps2.setInt(4, Integer.parseInt(ID_Viaje_Compra));
+                                                        ps2.setString(5, Usuario_Agencia);
                                                         ps2.executeUpdate();
                                                         ps2.close();
                                                         connection2.close(); %>
@@ -451,7 +459,15 @@
                                         <%
                                             } catch (Exception e) {
                                                 e.printStackTrace();
-                                                out.println("Inserción NO exitosa del registro en la base de datos interna de la agencia del boleto " + boletoIngresado + ".");
+
+                                        %>
+                                        <br>
+                                        <div class="alert alert-danger" role="alert">
+                                            <% out.println("Inserción NO exitosa del registro en la base de datos interna de la agencia del boleto " + boletoIngresado + ".");
+                                            %>
+                                        </div>
+                                        <%
+                                                
                                             }
 
                                         %>
@@ -660,10 +676,6 @@
 
 
                                     <!-- Entre estos tags poner el DOS -->
-
-
-
-
 
 
                                 </tbody>
