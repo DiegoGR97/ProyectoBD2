@@ -43,22 +43,6 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-client-OperacionesAerolinea_2" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/OperacionesAerolinea_2"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/OperacionesAerolinea_2" destdir="${build.generated.dir}/jax-wsCache/OperacionesAerolinea_2" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/OperacionesAerolinea_2/wsdl/192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://192.168.0.18:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/OperacionesAerolinea_2/wsdl/192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/OperacionesAerolinea_2"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/OperacionesAerolinea_2">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-OperacionesAerolinea_2" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/org/ws"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/OperacionesAerolinea_2"/>
-    </target>
     <target name="wsimport-client-OperacionesAerolinea" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/OperacionesAerolinea"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/OperacionesAerolinea" destdir="${build.generated.dir}/jax-wsCache/OperacionesAerolinea" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/OperacionesAerolinea/wsdl/192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" xnocompile="true" xendorsed="true">
@@ -75,5 +59,5 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/org/ws"/>
         <delete dir="${build.generated.dir}/jax-wsCache/OperacionesAerolinea"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-OperacionesAerolinea_2, wsimport-client-OperacionesAerolinea"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-OperacionesAerolinea"/>
 </project>

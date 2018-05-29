@@ -40,6 +40,12 @@ public class WebServicesAerolinea_Cliente {
         org.ws.OperacionesAerolinea port = service.getOperacionesAerolineaPort();
         return port.comprarBoletoAgenciaUno(idVuelo, idCliente);
     }
+
+    public static boolean cancelarBoleto(int idBoleto) {
+        org.ws.OperacionesAerolinea_Service service = new org.ws.OperacionesAerolinea_Service();
+        org.ws.OperacionesAerolinea port = service.getOperacionesAerolineaPort();
+        return port.cancelarBoleto(idBoleto);
+    }
     
     
     

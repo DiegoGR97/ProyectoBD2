@@ -45,6 +45,63 @@ public interface OperacionesAerolinea {
 
     /**
      * 
+     * @param idCliente
+     * @param idVuelo
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "comprarBoletoAgenciaUno", targetNamespace = "http://ws.org/", className = "org.ws.ComprarBoletoAgenciaUno")
+    @ResponseWrapper(localName = "comprarBoletoAgenciaUnoResponse", targetNamespace = "http://ws.org/", className = "org.ws.ComprarBoletoAgenciaUnoResponse")
+    @Action(input = "http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoRequest", output = "http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoResponse")
+    public String comprarBoletoAgenciaUno(
+        @WebParam(name = "id_vuelo", targetNamespace = "")
+        String idVuelo,
+        @WebParam(name = "id_cliente", targetNamespace = "")
+        String idCliente);
+
+    /**
+     * 
+     * @param idBoleto
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "cancelarBoleto", targetNamespace = "http://ws.org/", className = "org.ws.CancelarBoleto")
+    @ResponseWrapper(localName = "cancelarBoletoResponse", targetNamespace = "http://ws.org/", className = "org.ws.CancelarBoletoResponse")
+    @Action(input = "http://ws.org/OperacionesAerolinea/cancelarBoletoRequest", output = "http://ws.org/OperacionesAerolinea/cancelarBoletoResponse")
+    public boolean cancelarBoleto(
+        @WebParam(name = "id_boleto", targetNamespace = "")
+        int idBoleto);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<org.ws.Clientes>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getClientes", targetNamespace = "http://ws.org/", className = "org.ws.GetClientes")
+    @ResponseWrapper(localName = "getClientesResponse", targetNamespace = "http://ws.org/", className = "org.ws.GetClientesResponse")
+    @Action(input = "http://ws.org/OperacionesAerolinea/getClientesRequest", output = "http://ws.org/OperacionesAerolinea/getClientesResponse")
+    public List<Clientes> getClientes();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<org.ws.Vuelos>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getVuelos", targetNamespace = "http://ws.org/", className = "org.ws.GetVuelos")
+    @ResponseWrapper(localName = "getVuelosResponse", targetNamespace = "http://ws.org/", className = "org.ws.GetVuelosResponse")
+    @Action(input = "http://ws.org/OperacionesAerolinea/getVuelosRequest", output = "http://ws.org/OperacionesAerolinea/getVuelosResponse")
+    public List<Vuelos> getVuelos();
+
+    /**
+     * 
      * @param emailCliente
      * @param nombreCliente
      * @param apellidoCliente
@@ -66,47 +123,5 @@ public interface OperacionesAerolinea {
         String emailCliente,
         @WebParam(name = "nacionalidad", targetNamespace = "")
         String nacionalidad);
-
-    /**
-     * 
-     * @param idCliente
-     * @param idVuelo
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "comprarBoletoAgenciaUno", targetNamespace = "http://ws.org/", className = "org.ws.ComprarBoletoAgenciaUno")
-    @ResponseWrapper(localName = "comprarBoletoAgenciaUnoResponse", targetNamespace = "http://ws.org/", className = "org.ws.ComprarBoletoAgenciaUnoResponse")
-    @Action(input = "http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoRequest", output = "http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoResponse")
-    public String comprarBoletoAgenciaUno(
-        @WebParam(name = "id_vuelo", targetNamespace = "")
-        String idVuelo,
-        @WebParam(name = "id_cliente", targetNamespace = "")
-        String idCliente);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<org.ws.Vuelos>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getVuelos", targetNamespace = "http://ws.org/", className = "org.ws.GetVuelos")
-    @ResponseWrapper(localName = "getVuelosResponse", targetNamespace = "http://ws.org/", className = "org.ws.GetVuelosResponse")
-    @Action(input = "http://ws.org/OperacionesAerolinea/getVuelosRequest", output = "http://ws.org/OperacionesAerolinea/getVuelosResponse")
-    public List<Vuelos> getVuelos();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<org.ws.Clientes>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getClientes", targetNamespace = "http://ws.org/", className = "org.ws.GetClientes")
-    @ResponseWrapper(localName = "getClientesResponse", targetNamespace = "http://ws.org/", className = "org.ws.GetClientesResponse")
-    @Action(input = "http://ws.org/OperacionesAerolinea/getClientesRequest", output = "http://ws.org/OperacionesAerolinea/getClientesResponse")
-    public List<Clientes> getClientes();
 
 }

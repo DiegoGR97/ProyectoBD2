@@ -20,6 +20,7 @@
 <%@page import="org.ws.Clientes"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="AgenciaDeViajes.WebServicesAerolinea_Cliente"%>
+<%@page import="AgenciaDeViajes.WebServicesAerolinea_Cliente2"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -91,11 +92,11 @@
                                     List<Clientes> ClientesTraidos = new ArrayList<Clientes>();
                                     List<org.ws.Clientes> NuevosClientesTraidos = new ArrayList<Clientes>();
                                     ClientesTraidos = WebServicesAerolinea_Cliente.getClientes();
-                                    /*
+                                    
                                     List<Clientes> ClientesTraidos2 = new ArrayList<Clientes>();
                                     List<org.ws.Clientes> NuevosClientesTraidos2 = new ArrayList<Clientes>();
                                     ClientesTraidos2 = WebServicesAerolinea_Cliente2.getClientes(); 
-                                     */
+                                     
                                 %> 
 
 
@@ -134,9 +135,24 @@
                                             %>
                                             
                                             <!-- Entre estos tags poner el TRES -->
+                           
                                     
-                                    
-                                    
+        <%
+            for (int i = 0; i < ClientesTraidos2.size(); i++) {
+        %>
+
+        <tr>
+            <td>2</td>
+            <td><%out.println(ClientesTraidos2.get(i).getIdCliente());%></td>
+            <td><%out.println(ClientesTraidos2.get(i).getNombreCliente());%></td>
+            <td><%out.println(ClientesTraidos2.get(i).getApellidoCliente());%></td>
+            <td><%out.println(ClientesTraidos2.get(i).getEmailCliente());%></td>
+            <td><%out.println(ClientesTraidos2.get(i).getNacionalidad());%></td>
+        </tr>  
+        <%
+            }
+        %>
+        
                                    <!-- Entre estos tags poner el TRES -->
 
                                         </tbody>
@@ -215,7 +231,7 @@
                                                         WebServicesAerolinea_Cliente.nuevoCliente(nombre, apellido, email, nacionalidad);
                                                     }
                                                     if (idaerolinea.equals("2")) {
-                                                        //WebServicesAerolinea_Cliente2.nuevoCliente(nombre, apellido, email, nacionalidad);
+                                                        WebServicesAerolinea_Cliente2.nuevoCliente(nombre, apellido, email, nacionalidad);
                                                     }
 
                                         %>

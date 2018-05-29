@@ -10,23 +10,17 @@
 <message name="getCertainVuelosResponse">
 <part name="parameters" element="tns:getCertainVuelosResponse"/>
 </message>
-<message name="nuevoCliente">
-<part name="parameters" element="tns:nuevoCliente"/>
-</message>
-<message name="nuevoClienteResponse">
-<part name="parameters" element="tns:nuevoClienteResponse"/>
-</message>
 <message name="comprarBoletoAgenciaUno">
 <part name="parameters" element="tns:comprarBoletoAgenciaUno"/>
 </message>
 <message name="comprarBoletoAgenciaUnoResponse">
 <part name="parameters" element="tns:comprarBoletoAgenciaUnoResponse"/>
 </message>
-<message name="getVuelos">
-<part name="parameters" element="tns:getVuelos"/>
+<message name="cancelarBoleto">
+<part name="parameters" element="tns:cancelarBoleto"/>
 </message>
-<message name="getVuelosResponse">
-<part name="parameters" element="tns:getVuelosResponse"/>
+<message name="cancelarBoletoResponse">
+<part name="parameters" element="tns:cancelarBoletoResponse"/>
 </message>
 <message name="getClientes">
 <part name="parameters" element="tns:getClientes"/>
@@ -34,26 +28,42 @@
 <message name="getClientesResponse">
 <part name="parameters" element="tns:getClientesResponse"/>
 </message>
+<message name="getVuelos">
+<part name="parameters" element="tns:getVuelos"/>
+</message>
+<message name="getVuelosResponse">
+<part name="parameters" element="tns:getVuelosResponse"/>
+</message>
+<message name="nuevoCliente">
+<part name="parameters" element="tns:nuevoCliente"/>
+</message>
+<message name="nuevoClienteResponse">
+<part name="parameters" element="tns:nuevoClienteResponse"/>
+</message>
 <portType name="OperacionesAerolinea">
 <operation name="getCertainVuelos">
 <input wsam:Action="http://ws.org/OperacionesAerolinea/getCertainVuelosRequest" message="tns:getCertainVuelos"/>
 <output wsam:Action="http://ws.org/OperacionesAerolinea/getCertainVuelosResponse" message="tns:getCertainVuelosResponse"/>
 </operation>
-<operation name="nuevoCliente">
-<input wsam:Action="http://ws.org/OperacionesAerolinea/nuevoClienteRequest" message="tns:nuevoCliente"/>
-<output wsam:Action="http://ws.org/OperacionesAerolinea/nuevoClienteResponse" message="tns:nuevoClienteResponse"/>
-</operation>
 <operation name="comprarBoletoAgenciaUno">
 <input wsam:Action="http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoRequest" message="tns:comprarBoletoAgenciaUno"/>
 <output wsam:Action="http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoResponse" message="tns:comprarBoletoAgenciaUnoResponse"/>
+</operation>
+<operation name="cancelarBoleto">
+<input wsam:Action="http://ws.org/OperacionesAerolinea/cancelarBoletoRequest" message="tns:cancelarBoleto"/>
+<output wsam:Action="http://ws.org/OperacionesAerolinea/cancelarBoletoResponse" message="tns:cancelarBoletoResponse"/>
+</operation>
+<operation name="getClientes">
+<input wsam:Action="http://ws.org/OperacionesAerolinea/getClientesRequest" message="tns:getClientes"/>
+<output wsam:Action="http://ws.org/OperacionesAerolinea/getClientesResponse" message="tns:getClientesResponse"/>
 </operation>
 <operation name="getVuelos">
 <input wsam:Action="http://ws.org/OperacionesAerolinea/getVuelosRequest" message="tns:getVuelos"/>
 <output wsam:Action="http://ws.org/OperacionesAerolinea/getVuelosResponse" message="tns:getVuelosResponse"/>
 </operation>
-<operation name="getClientes">
-<input wsam:Action="http://ws.org/OperacionesAerolinea/getClientesRequest" message="tns:getClientes"/>
-<output wsam:Action="http://ws.org/OperacionesAerolinea/getClientesResponse" message="tns:getClientesResponse"/>
+<operation name="nuevoCliente">
+<input wsam:Action="http://ws.org/OperacionesAerolinea/nuevoClienteRequest" message="tns:nuevoCliente"/>
+<output wsam:Action="http://ws.org/OperacionesAerolinea/nuevoClienteResponse" message="tns:nuevoClienteResponse"/>
 </operation>
 </portType>
 <binding name="OperacionesAerolineaPortBinding" type="tns:OperacionesAerolinea">
@@ -67,7 +77,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="nuevoCliente">
+<operation name="comprarBoletoAgenciaUno">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -76,7 +86,16 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="comprarBoletoAgenciaUno">
+<operation name="cancelarBoleto">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getClientes">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -94,7 +113,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getClientes">
+<operation name="nuevoCliente">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

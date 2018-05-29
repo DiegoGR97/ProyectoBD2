@@ -24,6 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _CancelarBoleto_QNAME = new QName("http://ws.org/", "cancelarBoleto");
+    private final static QName _CancelarBoletoResponse_QNAME = new QName("http://ws.org/", "cancelarBoletoResponse");
     private final static QName _ComprarBoletoAgenciaUno_QNAME = new QName("http://ws.org/", "comprarBoletoAgenciaUno");
     private final static QName _ComprarBoletoAgenciaUnoResponse_QNAME = new QName("http://ws.org/", "comprarBoletoAgenciaUnoResponse");
     private final static QName _GetCertainVuelos_QNAME = new QName("http://ws.org/", "getCertainVuelos");
@@ -40,6 +42,22 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link CancelarBoleto }
+     * 
+     */
+    public CancelarBoleto createCancelarBoleto() {
+        return new CancelarBoleto();
+    }
+
+    /**
+     * Create an instance of {@link CancelarBoletoResponse }
+     * 
+     */
+    public CancelarBoletoResponse createCancelarBoletoResponse() {
+        return new CancelarBoletoResponse();
     }
 
     /**
@@ -136,6 +154,24 @@ public class ObjectFactory {
      */
     public Vuelos createVuelos() {
         return new Vuelos();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelarBoleto }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.org/", name = "cancelarBoleto")
+    public JAXBElement<CancelarBoleto> createCancelarBoleto(CancelarBoleto value) {
+        return new JAXBElement<CancelarBoleto>(_CancelarBoleto_QNAME, CancelarBoleto.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelarBoletoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.org/", name = "cancelarBoletoResponse")
+    public JAXBElement<CancelarBoletoResponse> createCancelarBoletoResponse(CancelarBoletoResponse value) {
+        return new JAXBElement<CancelarBoletoResponse>(_CancelarBoletoResponse_QNAME, CancelarBoletoResponse.class, null, value);
     }
 
     /**
