@@ -39,7 +39,7 @@ create or replace procedure crear_boleto(id_viaje_p in number, id_vuelo_p in num
 begin
     insert into boletos_comprados (id_viaje, id_vuelo, id_cliente, id_agencia_viaje)
     values (id_viaje_p, id_vuelo_p, id_cliente_p, 1);
-    aumentar_boletos_comprados(id_vuelo_p);
+    boletos_disponibles(id_vuelo_p);
 end;
 /
 /*
@@ -53,21 +53,16 @@ create or replace procedure crear_boleto_agencia_uno(id_vuelo_p in number, id_cl
 begin
     insert into boletos_comprados (id_viaje, id_vuelo, id_cliente, id_agencia_viaje)
     values (1, id_vuelo_p, id_cliente_p, 2);
-    aumentar_boletos_comprados(id_vuelo_p);
+    boletos_disponibles(id_vuelo_p);
 end;
 /
 
--- PROCEDURE AUMENTAR_BOLETOS_COMPRADOS
-create or replace procedure aumentar_boletos_comprados(id_vuelo_param in int) as
+-- PROCEDURE BOLETOS_DISPONIBLES
+create or replace procedure boletos_disponibles(id_vuelo_param in int) as
 begin
-    update vuelos set boletos_comprados=((select boletos_comprados from vuelos where id_vuelo=id_vuelo_param)+1) where id_vuelo=id_vuelo_param;
+    update vuelos set boletos_comprados=(select count(boleto_cancelado) from boletos_comprados where boleto_cancelado=0) where id_vuelo=id_vuelo_param;
 end;
 /
-/*
-exec aumentar_boletos_comprados(1);
-select * from vuelos;
-select count(boletos_comprados) from vuelos;
-*/
 
 -- PROCEDURE CANCELAR BOLETO
 create or replace procedure cancelar_boleto(id_boleto_comprado_p in number) as
@@ -75,25 +70,13 @@ id_vuelo_param number;
 begin
     UPDATE boletos_comprados SET FECHA_BOLETO_CANCELADO=sysdate, boleto_cancelado=1 WHERE id_boleto_comprado=id_boleto_comprado_p;
     select id_vuelo into id_vuelo_param from boletos_comprados where id_boleto_comprado=id_boleto_comprado_p;
-    disminuir_boletos_comprados(id_vuelo_param);
+    boletos_disponibles(id_vuelo_param);
 end;
 /
 /*
 exec cancelar_boleto(21);
 select * from vuelos;
 select * from boletos_comprados;
-*/
-
--- PROCEDURE AUMENTAR_BOLETOS_COMPRADOS
-create or replace procedure disminuir_boletos_comprados(id_vuelo_param in number) as
-begin
-    update vuelos set boletos_comprados=(select boletos_comprados from vuelos where id_vuelo=id_vuelo_param)-1 where id_vuelo=id_vuelo_param;
-end;
-/
-/*
-exec disminuir_boletos_comprados(5);
-select * from vuelos;
-select count(boletos_comprados) from vuelos;
 */
 
 -- PROCEDURE CREAR_AGENCIA_VIAJE
@@ -127,3 +110,13 @@ select * from vuelos;
 
 select * from vuelos where trunc(fecha_partida)=to_date('17-10-2017', 'dd-mm-yyyy');
 */
+
+select * from boletos_comprados;
+select c.email_cliente
+from clientes c, boletos_comprados bc
+where bc.id_cliente = c.ID_CLIENTE and bc.id_boleto_comprado=1;
+
+select count(boleto_cancelado) 
+from boletos_comprados 
+where boleto_cancelado=0;
+

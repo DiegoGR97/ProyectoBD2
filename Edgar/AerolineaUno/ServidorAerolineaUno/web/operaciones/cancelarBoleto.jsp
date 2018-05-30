@@ -47,6 +47,7 @@
                                         <tr>
                                             <th style="text-align: center;"><b>Id_Boleto_Comprado</b></th>
                                             <th style="text-align: center;"><b>Nombre_Agencia_Viaje</b></th>
+                                            <th style="text-align: center;"><b>Email_Agencia</b></th>
                                             <th style="text-align: center;"><b>Origen_Viaje</b></th>
                                             <th style="text-align: center;"><b>Destino_Viaje</b></th>
                                             <th style="text-align: center;"><b>Precio_Total_Viaje</b></th>
@@ -76,7 +77,7 @@
                                         String password = "pass123";
                                         try {
                                             con = DriverManager.getConnection(url, username, password);
-                                            ResultSet rs = con.createStatement().executeQuery("select bc.ID_BOLETO_COMPRADO, av.nombre_agencia, via.ORIGEN_VIAJE, via.DESTINO_VIAJE, via.precio_total, vue.origen_vuelo, vue.destino_vuelo, vue.capacidad_vuelo, vue.boletos_comprados, vue.fecha_partida, vue.fecha_llegada, vue.PRECIO_UNITARIO, c.NOMBRE_CLIENTE, c.APELLIDO_CLIENTE, c.EMAIL_CLIENTE, c.NACIONALIDAD, bc.FECHA_COMPRA_BOLETO, bc.BOLETO_CANCELADO, bc.FECHA_BOLETO_CANCELADO from boletos_comprados bc, viajes via, vuelos vue, clientes c, agencias_viajes av where bc.ID_VIAJE=via.ID_VIAJE and bc.ID_VUELO=vue.ID_VUELO and bc.ID_CLIENTE=c.ID_CLIENTE and bc.id_agencia_viaje=av.ID_AGENCIA_VIAJE");
+                                            ResultSet rs = con.createStatement().executeQuery("select bc.ID_BOLETO_COMPRADO, av.nombre_agencia, av.email_agencia, via.ORIGEN_VIAJE, via.DESTINO_VIAJE, via.precio_total, vue.origen_vuelo, vue.destino_vuelo, vue.capacidad_vuelo, vue.boletos_comprados, vue.fecha_partida, vue.fecha_llegada, vue.PRECIO_UNITARIO, c.NOMBRE_CLIENTE, c.APELLIDO_CLIENTE, c.EMAIL_CLIENTE, c.NACIONALIDAD, bc.FECHA_COMPRA_BOLETO, bc.BOLETO_CANCELADO, bc.FECHA_BOLETO_CANCELADO from boletos_comprados bc, viajes via, vuelos vue, clientes c, agencias_viajes av where bc.ID_VIAJE=via.ID_VIAJE and bc.ID_VUELO=vue.ID_VUELO and bc.ID_CLIENTE=c.ID_CLIENTE and bc.id_agencia_viaje=av.ID_AGENCIA_VIAJE");
                                             while (rs.next()) {
                                     %>
                                     <tr>
@@ -99,6 +100,7 @@
                                         <td><%=rs.getString(17)%></td>
                                         <td><%=rs.getString(18)%></td>
                                         <td><%=rs.getString(19)%></td>
+                                        <td><%=rs.getString(20)%></td>
                                     </tr>
                                     <%
                                             }

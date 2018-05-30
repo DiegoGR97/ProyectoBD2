@@ -7,7 +7,7 @@ values ('agenciaUno', 'e-emilio@hotmail.com');
 select * from vuelos;
 insert into vuelos 
 (origen_vuelo, destino_vuelo, capacidad_vuelo, fecha_partida, fecha_llegada, precio_unitario)
-values ('Mexico', 'Alemania', 25, to_date('15-10-2018 15:45:10', 'dd-mm-yyyy hh24:mi:ss'), to_date('25-10-2018 15:45:10', 'dd-mm-yyyy hh24:mi:ss'), 18.25);
+values ('Guatemala', 'Canada', 10, to_date('15-10-2018 15:45:10', 'dd-mm-yyyy hh24:mi:ss'), to_date('25-10-2018 15:45:10', 'dd-mm-yyyy hh24:mi:ss'), 18.25);
 
 -- INSERTS ON CLIENTES
 select * from clientes;
@@ -34,6 +34,3 @@ select * from vuelos;
 insert into boletos_comprados
 (id_viaje, id_vuelo, id_cliente, ID_AGENCIA_VIAJE)
 values (300,  100, 200, 1);
-
-delete from viajes;
-commit;
