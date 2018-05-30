@@ -46,6 +46,12 @@ public class WebServicesAerolinea_Cliente {
         org.ws.OperacionesAerolinea port = service.getOperacionesAerolineaPort();
         return port.cancelarBoleto(idBoleto);
     }
+
+    public static java.util.List<org.ws.OrigenDestinoVuelos> getOrigenDestino() {
+        org.ws.OperacionesAerolinea_Service service = new org.ws.OperacionesAerolinea_Service();
+        org.ws.OperacionesAerolinea port = service.getOperacionesAerolineaPort();
+        return port.getOrigenDestino();
+    }
     
     
     

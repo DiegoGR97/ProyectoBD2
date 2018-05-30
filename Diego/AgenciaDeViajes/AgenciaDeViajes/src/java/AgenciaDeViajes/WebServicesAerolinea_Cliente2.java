@@ -41,5 +41,13 @@ public class WebServicesAerolinea_Cliente2 {
         org.ws.OperacionesAerolinea port = service.getOperacionesAerolineaPort();
         return port.nuevoCliente(nombreCliente, apellidoCliente, emailCliente, nacionalidad);
     }
+
+    public static java.util.List<org.ws.OrigenDestinoVuelos> getOrigenDestino() {
+        org.ws.OperacionesAerolinea_Service service = new org.ws.OperacionesAerolinea_Service();
+        org.ws.OperacionesAerolinea port = service.getOperacionesAerolineaPort();
+        return port.getOrigenDestino();
+    }
+    
+    
     
 }

@@ -32,6 +32,8 @@ public class ObjectFactory {
     private final static QName _GetCertainVuelosResponse_QNAME = new QName("http://ws.org/", "getCertainVuelosResponse");
     private final static QName _GetClientes_QNAME = new QName("http://ws.org/", "getClientes");
     private final static QName _GetClientesResponse_QNAME = new QName("http://ws.org/", "getClientesResponse");
+    private final static QName _GetOrigenDestino_QNAME = new QName("http://ws.org/", "getOrigenDestino");
+    private final static QName _GetOrigenDestinoResponse_QNAME = new QName("http://ws.org/", "getOrigenDestinoResponse");
     private final static QName _GetVuelos_QNAME = new QName("http://ws.org/", "getVuelos");
     private final static QName _GetVuelosResponse_QNAME = new QName("http://ws.org/", "getVuelosResponse");
     private final static QName _NuevoCliente_QNAME = new QName("http://ws.org/", "nuevoCliente");
@@ -109,6 +111,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetOrigenDestino }
+     * 
+     */
+    public GetOrigenDestino createGetOrigenDestino() {
+        return new GetOrigenDestino();
+    }
+
+    /**
+     * Create an instance of {@link GetOrigenDestinoResponse }
+     * 
+     */
+    public GetOrigenDestinoResponse createGetOrigenDestinoResponse() {
+        return new GetOrigenDestinoResponse();
+    }
+
+    /**
      * Create an instance of {@link GetVuelos }
      * 
      */
@@ -154,6 +172,14 @@ public class ObjectFactory {
      */
     public Vuelos createVuelos() {
         return new Vuelos();
+    }
+
+    /**
+     * Create an instance of {@link OrigenDestinoVuelos }
+     * 
+     */
+    public OrigenDestinoVuelos createOrigenDestinoVuelos() {
+        return new OrigenDestinoVuelos();
     }
 
     /**
@@ -226,6 +252,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.org/", name = "getClientesResponse")
     public JAXBElement<GetClientesResponse> createGetClientesResponse(GetClientesResponse value) {
         return new JAXBElement<GetClientesResponse>(_GetClientesResponse_QNAME, GetClientesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrigenDestino }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.org/", name = "getOrigenDestino")
+    public JAXBElement<GetOrigenDestino> createGetOrigenDestino(GetOrigenDestino value) {
+        return new JAXBElement<GetOrigenDestino>(_GetOrigenDestino_QNAME, GetOrigenDestino.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrigenDestinoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.org/", name = "getOrigenDestinoResponse")
+    public JAXBElement<GetOrigenDestinoResponse> createGetOrigenDestinoResponse(GetOrigenDestinoResponse value) {
+        return new JAXBElement<GetOrigenDestinoResponse>(_GetOrigenDestinoResponse_QNAME, GetOrigenDestinoResponse.class, null, value);
     }
 
     /**

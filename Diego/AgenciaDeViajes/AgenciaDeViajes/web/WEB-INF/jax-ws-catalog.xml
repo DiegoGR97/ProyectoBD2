@@ -11,4 +11,6 @@
     <system systemId="http://192.168.0.18:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.0.18_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
     <system systemId="http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="wsdl/192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
     <system systemId="http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
+    <system systemId="http://192.168.1.25:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="wsdl/192.168.1.25_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
+    <system systemId="http://192.168.1.25:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.1.25_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
 </catalog>

@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.org/">
+
+<xs:element name="cancelarBoleto" type="tns:cancelarBoleto"/>
+
+<xs:element name="cancelarBoletoResponse" type="tns:cancelarBoletoResponse"/>
+
+<xs:element name="comprarBoletoAgenciaUno" type="tns:comprarBoletoAgenciaUno"/>
+
+<xs:element name="comprarBoletoAgenciaUnoResponse" type="tns:comprarBoletoAgenciaUnoResponse"/>
+
+<xs:element name="getCertainVuelos" type="tns:getCertainVuelos"/>
+
+<xs:element name="getCertainVuelosResponse" type="tns:getCertainVuelosResponse"/>
+
+<xs:element name="getClientes" type="tns:getClientes"/>
+
+<xs:element name="getClientesResponse" type="tns:getClientesResponse"/>
+
+<xs:element name="getOrigenDestino" type="tns:getOrigenDestino"/>
+
+<xs:element name="getOrigenDestinoResponse" type="tns:getOrigenDestinoResponse"/>
+
+<xs:element name="getVuelos" type="tns:getVuelos"/>
+
+<xs:element name="getVuelosResponse" type="tns:getVuelosResponse"/>
+
+<xs:element name="nuevoCliente" type="tns:nuevoCliente"/>
+
+<xs:element name="nuevoClienteResponse" type="tns:nuevoClienteResponse"/>
+
+<xs:complexType name="getClientes">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getClientesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:clientes" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="clientes">
+<xs:sequence>
+<xs:element name="apellido_cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="email_cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="id_cliente" type="xs:int"/>
+<xs:element name="nacionalidad" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre_cliente" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getVuelos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getVuelosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:vuelos" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="vuelos">
+<xs:sequence>
+<xs:element name="boletos_comprados" type="xs:int"/>
+<xs:element name="capacidad_vuelo" type="xs:int"/>
+<xs:element name="destino_vuelo" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha_llegada" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha_partida" type="xs:string" minOccurs="0"/>
+<xs:element name="id_vuelo" type="xs:int"/>
+<xs:element name="origen_vuelo" type="xs:string" minOccurs="0"/>
+<xs:element name="precio_unitario" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nuevoCliente">
+<xs:sequence>
+<xs:element name="nombre_cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="apellido_cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="email_cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="nacionalidad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nuevoClienteResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getOrigenDestino">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getOrigenDestinoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:origenDestinoVuelos" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="origenDestinoVuelos">
+<xs:sequence>
+<xs:element name="destino_vuelo" type="xs:string" minOccurs="0"/>
+<xs:element name="origen_vuelo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprarBoletoAgenciaUno">
+<xs:sequence>
+<xs:element name="id_vuelo" type="xs:string" minOccurs="0"/>
+<xs:element name="id_cliente" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprarBoletoAgenciaUnoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelarBoleto">
+<xs:sequence>
+<xs:element name="id_boleto" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelarBoletoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCertainVuelos">
+<xs:sequence>
+<xs:element name="origen" type="xs:string" minOccurs="0"/>
+<xs:element name="destino" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCertainVuelosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:vuelos" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

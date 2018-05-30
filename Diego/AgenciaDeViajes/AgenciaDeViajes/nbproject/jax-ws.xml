@@ -7,8 +7,8 @@
   </services>
   <clients>
     <client name="OperacionesAerolinea">
-      <wsdl-url>http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsdl-url>
-      <local-wsdl-file>192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl</local-wsdl-file>
+      <wsdl-url>http://192.168.1.25:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsdl-url>
+      <local-wsdl-file>192.168.1.25_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl</local-wsdl-file>
       <package-name>org.ws</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -26,7 +26,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsimport-option-value>
+          <wsimport-option-value>http://192.168.1.25:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

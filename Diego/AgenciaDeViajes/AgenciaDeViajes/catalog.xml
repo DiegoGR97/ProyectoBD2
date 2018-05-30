@@ -13,4 +13,8 @@
     <system systemId="http://192.168.43.92:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="src/conf/xml-resources/web-service-references/OperacionesAerolinea/wsdl/192.168.43.92_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
     <system systemId="http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="src/conf/xml-resources/web-service-references/OperacionesAerolinea/wsdl/192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
     <system systemId="http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="src/conf/xml-resources/web-service-references/OperacionesAerolinea/wsdl/192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
+    <system systemId="http://192.168.1.2:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="src/conf/xml-resources/web-service-references/OperacionesAerolinea_1/wsdl/192.168.1.2_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
+    <system systemId="http://192.168.1.2:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="src/conf/xml-resources/web-service-references/OperacionesAerolinea_1/wsdl/192.168.1.2_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
+    <system systemId="http://192.168.1.25:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="src/conf/xml-resources/web-service-references/OperacionesAerolinea/wsdl/192.168.1.25_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
+    <system systemId="http://192.168.1.25:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="src/conf/xml-resources/web-service-references/OperacionesAerolinea/wsdl/192.168.1.25_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
 </catalog>

@@ -4,13 +4,6 @@
     Author     : Diego
 --%>
 
-<%-- 
-    Document   : RegistrarUsuario
-    Created on : May 21, 2018, 11:11:43 PM
-    Author     : Diego
---%>
-
-
 <%@page import="java.sql.CallableStatement"%>
 <%@page import="ProbarConexion.Conexion"%>
 <%@page import="java.sql.Connection"%>
@@ -62,6 +55,7 @@
                     <ul class="nav navbar-nav">
                         <li><a  href="RegistrarUsuario.jsp">Registrar Usuario</a></li>
                         <li><a  href="VerYRegistrarClientes.jsp">Ver y Registrar Clientes</a></li>
+                        <li><a  href="RegistroBoletos.jsp">Boletos Registrados</a></li>
                     </ul>
                 </div>
             </div>
