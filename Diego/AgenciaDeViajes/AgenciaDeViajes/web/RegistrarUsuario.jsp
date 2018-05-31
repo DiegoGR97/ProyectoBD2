@@ -54,6 +54,7 @@
                     <ul class="nav navbar-nav">
                         <li><a  href="RegistrarUsuario.jsp">Registrar Usuario</a></li>
                         <li><a  href="VerYRegistrarClientes.jsp">Ver y Registrar Clientes</a></li>
+                         <li><a  href="RegistroBoletos.jsp">Boletos Registrados</a></li>
                     </ul>
                 </div>
             </div>

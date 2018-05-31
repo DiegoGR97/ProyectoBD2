@@ -6,9 +6,9 @@
     </service>
   </services>
   <clients>
-    <client name="OperacionesAerolinea_2">
-      <wsdl-url>http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsdl-url>
-      <local-wsdl-file>192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl</local-wsdl-file>
+    <client name="OperacionesAerolineaDos">
+      <wsdl-url>http://192.168.43.96:8080/ServidorAerolineaTres/OperacionesAerolineaDos?WSDL</wsdl-url>
+      <local-wsdl-file>192.168.43.96_8080/ServidorAerolineaTres/OperacionesAerolineaDos.wsdl</local-wsdl-file>
       <package-name>org.ws</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -26,7 +26,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.0.18:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.96:8080/ServidorAerolineaTres/OperacionesAerolineaDos?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -39,8 +39,8 @@
       </wsimport-options>
     </client>
     <client name="OperacionesAerolinea">
-      <wsdl-url>http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsdl-url>
-      <local-wsdl-file>192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl</local-wsdl-file>
+      <wsdl-url>http://192.168.43.92:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsdl-url>
+      <local-wsdl-file>192.168.43.92_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl</local-wsdl-file>
       <package-name>org.ws</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -58,7 +58,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.92:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

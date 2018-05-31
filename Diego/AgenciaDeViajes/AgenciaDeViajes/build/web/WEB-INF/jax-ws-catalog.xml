@@ -11,4 +11,10 @@
     <system systemId="http://192.168.0.18:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.0.18_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
     <system systemId="http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="wsdl/192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
     <system systemId="http://192.168.0.16:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.0.16_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
+    <system systemId="http://192.168.1.25:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="wsdl/192.168.1.25_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
+    <system systemId="http://192.168.1.25:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.1.25_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
+    <system systemId="http://192.168.1.2:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL" uri="wsdl/192.168.1.2_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl"/>
+    <system systemId="http://192.168.1.2:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1" uri="wsdl/192.168.1.2_8080/ServidorAerolineaUno/OperacionesAerolinea.xsd_1.xsd"/>
+    <system systemId="http://192.168.43.96:8080/ServidorAerolineaTres/OperacionesAerolineaDos?WSDL" uri="wsdl/192.168.43.96_8080/ServidorAerolineaTres/OperacionesAerolineaDos.wsdl"/>
+    <system systemId="http://192.168.43.96:8080/ServidorAerolineaTres/OperacionesAerolineaDos?xsd=1" uri="wsdl/192.168.43.96_8080/ServidorAerolineaTres/OperacionesAerolineaDos.xsd_1.xsd"/>
 </catalog>

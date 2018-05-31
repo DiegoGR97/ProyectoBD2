@@ -1,0 +1,55 @@
+@startuml
+annotation javax.jws.WebMethod
+annotation javax.jws.WebParam
+annotation javax.jws.WebService
+class AgenciaDeViajes.Aerolinea_getVuelos_1
+class AgenciaDeViajes.WebServiceAgencia
+class AgenciaDeViajes.WebServicesAerolinea_Cliente
+class AgenciaDeViajes.WebServicesAerolinea_Cliente2
+class Data.Usuario_Agencia
+class ProbarConexion.Conexion
+class ProbarConexion.ProbandoConexion
+class java.sql.Connection
+class java.sql.DriverManager
+class java.sql.ResultSet
+class java.sql.SQLException
+class java.util.ArrayList
+class java.util.Arrays
+class java.util.List
+class java.util.logging.Level
+class java.util.logging.Logger
+class org.ws.Vuelos
+AgenciaDeViajes.Aerolinea_getVuelos_1 ..> Data.Usuario_Agencia
+AgenciaDeViajes.Aerolinea_getVuelos_1 ..> java.util.ArrayList
+AgenciaDeViajes.Aerolinea_getVuelos_1 ..> java.util.Arrays
+AgenciaDeViajes.Aerolinea_getVuelos_1 ..> java.util.List
+AgenciaDeViajes.Aerolinea_getVuelos_1 ..> org.ws.Vuelos
+AgenciaDeViajes.WebServiceAgencia ..> javax.jws.WebMethod
+AgenciaDeViajes.WebServiceAgencia ..> javax.jws.WebParam
+AgenciaDeViajes.WebServiceAgencia ..> javax.jws.WebService
+AgenciaDeViajes.WebServiceAgencia ..> Data.Usuario_Agencia
+AgenciaDeViajes.WebServiceAgencia ..> ProbarConexion.Conexion
+AgenciaDeViajes.WebServiceAgencia ..> java.sql.Connection
+AgenciaDeViajes.WebServiceAgencia ..> java.sql.ResultSet
+AgenciaDeViajes.WebServiceAgencia ..> java.sql.SQLException
+AgenciaDeViajes.WebServiceAgencia ..> java.util.ArrayList
+AgenciaDeViajes.WebServiceAgencia ..> java.util.List
+Data.Usuario_Agencia ..> java.sql.Connection
+Data.Usuario_Agencia ..> java.sql.ResultSet
+Data.Usuario_Agencia ..> java.sql.SQLException
+Data.Usuario_Agencia ..> java.util.logging.Level
+Data.Usuario_Agencia ..> java.util.logging.Logger
+ProbarConexion.Conexion ..> java.sql.Connection
+ProbarConexion.Conexion ..> java.sql.DriverManager
+ProbarConexion.Conexion ..> java.sql.SQLException
+ProbarConexion.Conexion ..> java.util.logging.Level
+ProbarConexion.Conexion ..> java.util.logging.Logger
+ProbarConexion.ProbandoConexion ..> Data.Usuario_Agencia
+ProbarConexion.ProbandoConexion ..> java.sql.Connection
+ProbarConexion.ProbandoConexion ..> java.sql.ResultSet
+ProbarConexion.ProbandoConexion ..> java.sql.SQLException
+ProbarConexion.ProbandoConexion ..> java.util.ArrayList
+ProbarConexion.ProbandoConexion ..> java.util.List
+ProbarConexion.ProbandoConexion ..> java.util.logging.Level
+ProbarConexion.ProbandoConexion ..> java.util.logging.Logger
+@enduml

@@ -14,6 +14,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="org.ws.Vuelos"%>
+<%@page import="org.ws.OrigenDestinoVuelos"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="AgenciaDeViajes.WebServicesAerolinea_Cliente"%>
 
@@ -57,6 +58,7 @@
                     <ul class="nav navbar-nav">
                         <li><a  href="RegistrarUsuario.jsp">Registrar Usuario</a></li>
                         <li><a  href="VerYRegistrarClientes.jsp">Ver y Registrar Clientes</a></li>
+                        <li><a  href="RegistroBoletos.jsp">Boletos Registrados</a></li>
                     </ul>
                 </div>
             </div>
@@ -75,6 +77,105 @@
 
                     <div class="panel panel-default">
                         <h2 style="text-align: center; font-size: 2em" >SITIO DE COMPRA DE BOLETOS DE AGENCIA DE VIAJES </h2>
+
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Catálogo de Orígenes y Destinos Posibles </h3>
+                        </div>
+                        <div class="panel-body">
+
+
+                            <div class="row">
+
+
+
+                                <%
+
+                                    List<OrigenDestinoVuelos> CatalogoTraido = new ArrayList<OrigenDestinoVuelos>();
+                                    List<org.ws.OrigenDestinoVuelos> NuevoOrigenDestinoVuelos = new ArrayList<OrigenDestinoVuelos>();
+                                    CatalogoTraido = WebServicesAerolinea_Cliente.getOrigenDestino();
+
+                                    List<OrigenDestinoVuelos> CatalogoTraido2 = new ArrayList<OrigenDestinoVuelos>();
+                                    List<org.ws.OrigenDestinoVuelos> NuevoCatalogoTraido2 = new ArrayList<OrigenDestinoVuelos>();
+                                    CatalogoTraido2 = WebServicesAerolinea_Cliente2.getOrigenDestino();
+
+                                    /*Aquí ir poniendo las distintas llamadas a funciones de los distintos web services de 
+                                        distintas aerolíneas para llamar a varias de ellas. */
+
+                                %> 
+
+                                <div id="tabla-respuesta" class="table-responsive">
+                                    <table id="datatable" class="table table-striped table-bordered table-hover">
+
+                                        <thead>
+                                            <tr>
+
+                                                <th style="text-align: center;"><b>Origen</b></th>
+                                                <th style="text-align: center;"><b>Destino</b></th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <!-- Poner un for de estos por cada una de las aerolíneas consultadas -->
+
+
+                                            <%                                                for (int i = 0; i < CatalogoTraido.size(); i++) {
+                                            %>
+
+                                            <tr>
+
+                                                <td><%out.println(CatalogoTraido.get(i).getOrigenVuelo());%></td>
+                                                <td><%out.println(CatalogoTraido.get(i).getDestinoVuelo());%></td>
+
+                                            </tr>  
+                                            <%
+                                                }
+                                            %>
+
+
+                                            <!-- Entre estos tags poner el UNO -->
+
+                                            <%
+                                                for (int i = 0; i < CatalogoTraido2.size(); i++) {
+                                            %>
+
+                                            <tr>
+
+                                                <td><%out.println(CatalogoTraido2.get(i).getOrigenVuelo());%></td>
+                                                <td><%out.println(CatalogoTraido2.get(i).getDestinoVuelo());%></td>
+                                            </tr>  
+                                            <%
+                                                }
+                                            %>
+
+                                            <!-- Entre estos tags poner el UNO -->
+
+
+
+
+
+
+
+
+
+
+                                        </tbody>
+
+
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
 
                         <div class="panel-heading">
                             <h3 class="panel-title">Búsqueda de Vuelos </h3>
@@ -98,114 +199,130 @@
                                     </div>
                                     <!--
                                     <div class="col-md-6">
-                                        <label>Fecha de Partida:</label>
-                                        <input  id="FechaPartida" name="FechaPartida" type="text" placeholder="dd-mm-YYYY" class="form-control"  onchange="cargarListado();" value= "" > 
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label>Fecha de Llegada:</label>
-                                        <input id="FechaLlegada" name="FechaLlegada" type="text"  placeholder="dd-mm-YYYY" class="form-control"  onchange="cargarListado();" value= "" >             
-                                    </div>
-                                    --> 
-                                    <div class="col-md-6">
-                                        <br> 
-                                        <button class="btn btn-lg btn-primary btn-block" type="submit">Buscar Vuelo</button>
-                                        <br>
-                                    </div>
-
-                                </form>
-
-                                <%
-                                    String Origen = "", Destino = "m";
-                                    if (request.getParameter("Origen") != null) {
-                                        Origen = request.getParameter("Origen");
-                                    }
-                                    if (request.getParameter("Destino") != null) {
-                                        Destino = request.getParameter("Destino");
-                                    }
-                                    ResultSet rs = null;
-
-                                    List<Vuelos> VuelosTraidosSeleccionados = new ArrayList<Vuelos>();
-                                    List<org.ws.Vuelos> NuevosVuelosSeleccionados = new ArrayList<Vuelos>();
-                                    VuelosTraidosSeleccionados = WebServicesAerolinea_Cliente.getCertainVuelos(Origen, Destino);
-                                    
-                                    /*
-                                    List<Vuelos> VuelosTraidosSeleccionados2 = new ArrayList<Vuelos>();
-                                    List<org.ws.Vuelos> NuevosVuelosSeleccionados2 = new ArrayList<Vuelos>();
-                                    VuelosTraidosSeleccionados2 = WebServicesAerolinea_Cliente2.getCertainVuelos(Origen, Destino);
-                                    */
-                                    
-                                    /*Aquí ir poniendo las distintas llamadas a funciones de los distintos web services de 
-                                        distintas aerolíneas para llamar a varias de ellas. */
-
-                                %> 
-
-                                <div id="tabla-respuesta" class="table-responsive">
-                                    <table id="datatable" class="table table-striped table-bordered table-hover">
-
-                                        <thead>
-                                            <tr>
-                                                <th style="text-align: center;"><b>Id Aerolinea</b></th>
-                                                <th style="text-align: center;"><b>Id Vuelo</b></th>
-                                                <th style="text-align: center;"><b>Origen</b></th>
-                                                <th style="text-align: center;"><b>Destino</b></th>
-                                                <th style="text-align: center;"><b>Capacidad Vuelo</b></th>
-                                                <th style="text-align: center;"><b>Boletos Comprados</b></th>
-                                                <th style="text-align: center;"><b>Fecha Partida</b></th>
-                                                <th style="text-align: center;"><b>Fecha Llegada</b></th>
-                                                <th style="text-align: center;"><b>Precio Unitario</b></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <!-- Poner un for de estos por cada una de las aerolíneas consultadas -->
-
-
-                                            <%
-                                                for (int i = 0; i < VuelosTraidosSeleccionados.size(); i++) {
-                                            %>
-
-                                            <tr>
-                                                <td>1</td>
-                                                <td><%out.println(VuelosTraidosSeleccionados.get(i).getIdVuelo());%></td>
-                                                <td><%out.println(VuelosTraidosSeleccionados.get(i).getOrigenVuelo());%></td>
-                                                <td><%out.println(VuelosTraidosSeleccionados.get(i).getDestinoVuelo());%></td>
-                                                <td><%out.println(VuelosTraidosSeleccionados.get(i).getCapacidadVuelo());%></td>
-                                                <td><%out.println(VuelosTraidosSeleccionados.get(i).getBoletosComprados());%></td>
-                                                <td><%out.println(VuelosTraidosSeleccionados.get(i).getFechaPartida());%></td>
-                                                <td><%out.println(VuelosTraidosSeleccionados.get(i).getFechaLlegada());%></td>
-                                                <td><%out.println(VuelosTraidosSeleccionados.get(i).getPrecioUnitario());%> </td> 
-                                            </tr>  
-                                            <%
-                                                }
-                                            %>
-                                            
-                                            
-                                              <!-- Entre estos tags poner el UNO -->
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                   <!-- Entre estos tags poner el UNO -->
-                                    
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-
-                                        </tbody>
-
-
-                                    </table>
-                                </div>
-
+                                        <label>Asientos Disponibles:</label>
+                                        <input id="AsientosDisponibles" name="AsientosDisponibles" type="text" class="form-control"  onchange="cargarListado();" value= "" >
+                                    -->
                             </div>
+                            <!--
+                            <div class="col-md-6">
+                                <label>Fecha de Partida:</label>
+                                <input  id="FechaPartida" name="FechaPartida" type="text" placeholder="dd-mm-YYYY" class="form-control"  onchange="cargarListado();" value= "" > 
+                            </div>
+
+                            <div class="col-md-6">
+                                <label>Fecha de Llegada:</label>
+                                <input id="FechaLlegada" name="FechaLlegada" type="text"  placeholder="dd-mm-YYYY" class="form-control"  onchange="cargarListado();" value= "" >             
+                            </div>
+                            --> 
+                            <div class="col-md-6">
+                                <br> 
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Buscar Vuelo</button>
+                                <br>
+                            </div>
+
+                            </form>
+
+                            <%
+                                String Origen = "", Destino = "m";
+                                if (request.getParameter("Origen") != null) {
+                                    Origen = request.getParameter("Origen");
+                                }
+                                if (request.getParameter("Destino") != null) {
+                                    Destino = request.getParameter("Destino");
+                                }
+                                ResultSet rs = null;
+
+                                List<Vuelos> VuelosTraidosSeleccionados = new ArrayList<Vuelos>();
+                                List<org.ws.Vuelos> NuevosVuelosSeleccionados = new ArrayList<Vuelos>();
+                                VuelosTraidosSeleccionados = WebServicesAerolinea_Cliente.getCertainVuelos(Origen, Destino);
+
+                                List<Vuelos> VuelosTraidosSeleccionados2 = new ArrayList<Vuelos>();
+                                List<org.ws.Vuelos> NuevosVuelosSeleccionados2 = new ArrayList<Vuelos>();
+                                VuelosTraidosSeleccionados2 = WebServicesAerolinea_Cliente2.getCertainVuelos(Origen, Destino);
+
+                                /*Aquí ir poniendo las distintas llamadas a funciones de los distintos web services de 
+                                    distintas aerolíneas para llamar a varias de ellas. */
+
+                            %> 
+
+                            <div id="tabla-respuesta" class="table-responsive">
+                                <table id="datatable" class="table table-striped table-bordered table-hover">
+
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center;"><b>Id Aerolinea</b></th>
+                                            <th style="text-align: center;"><b>Id Vuelo</b></th>
+                                            <th style="text-align: center;"><b>Origen</b></th>
+                                            <th style="text-align: center;"><b>Destino</b></th>
+                                            <th style="text-align: center;"><b>Capacidad Vuelo</b></th>
+                                            <th style="text-align: center;"><b>Boletos Comprados</b></th>
+                                            <th style="text-align: center;"><b>Fecha Partida</b></th>
+                                            <th style="text-align: center;"><b>Fecha Llegada</b></th>
+                                            <th style="text-align: center;"><b>Precio Unitario</b></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <!-- Poner un for de estos por cada una de las aerolíneas consultadas -->
+
+
+                                        <%                                                for (int i = 0; i < VuelosTraidosSeleccionados.size(); i++) {
+                                        %>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td><%out.println(VuelosTraidosSeleccionados.get(i).getIdVuelo());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados.get(i).getOrigenVuelo());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados.get(i).getDestinoVuelo());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados.get(i).getCapacidadVuelo());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados.get(i).getBoletosComprados());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados.get(i).getFechaPartida());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados.get(i).getFechaLlegada());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados.get(i).getPrecioUnitario());%> </td> 
+                                        </tr>  
+                                        <%
+                                            }
+                                        %>
+
+
+                                        <!-- Entre estos tags poner el UNO -->
+
+                                        <%
+                                            for (int i = 0; i < VuelosTraidosSeleccionados2.size(); i++) {
+                                        %>
+
+                                        <tr>
+                                            <td>2</td>
+                                            <td><%out.println(VuelosTraidosSeleccionados2.get(i).getIdVuelo());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados2.get(i).getOrigenVuelo());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados2.get(i).getDestinoVuelo());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados2.get(i).getCapacidadVuelo());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados2.get(i).getBoletosComprados());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados2.get(i).getFechaPartida());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados2.get(i).getFechaLlegada());%></td>
+                                            <td><%out.println(VuelosTraidosSeleccionados2.get(i).getPrecioUnitario());%> </td> 
+                                        </tr>  
+                                        <%
+                                            }
+                                        %>
+
+                                        <!-- Entre estos tags poner el UNO -->
+
+
+
+
+
+
+
+
+
+
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+
                         </div>
 
                         <div class="panel-heading">
@@ -383,6 +500,10 @@
                                         <label>ID de Cliente de Aerolínea:</label>
                                         <input  id="ID_Cliente" name="ID_Cliente_Aero" type="text" class="form-control"  onchange="cargarListado();" value= "" > 
                                     </div>
+                                    <div class="col-md-6">
+                                        <label>Usuario de Agencia que Compra:</label>
+                                        <input  id="Usuario_Agencia" name="Usuario_Agencia" type="text" class="form-control"  onchange="cargarListado();" value= "" > 
+                                    </div>
 
                                     <div class="col-md-6">
                                         <br>
@@ -393,7 +514,7 @@
                                         <br>
 
                                         <%
-                                            String ID_AerolineaComprar = "", ID_Vuelo = "", ID_Viaje_Compra = "", ID_Cliente_Aero = "", boletoIngresado = "";
+                                            String ID_AerolineaComprar = "", ID_Vuelo = "", ID_Viaje_Compra = "", ID_Cliente_Aero = "", boletoIngresado = "", Usuario_Agencia = "";
                                             if (request.getParameter("ID_AerolineaComprar") != null || ID_AerolineaComprar != "") {
                                                 ID_AerolineaComprar = request.getParameter("ID_AerolineaComprar");
                                             }
@@ -406,29 +527,34 @@
                                             if (request.getParameter("ID_Cliente_Aero") != null || ID_Cliente_Aero != "") {
                                                 ID_Cliente_Aero = request.getParameter("ID_Cliente_Aero");
                                             }
+                                            if (request.getParameter("Usuario_Agencia") != null || Usuario_Agencia != "") {
+                                                Usuario_Agencia = request.getParameter("Usuario_Agencia");
+                                            }
                                         %>
 
                                         <%
-                                            if (ID_AerolineaComprar != null && ID_Vuelo != null && ID_Viaje_Compra != null && ID_Cliente_Aero != null
-                                                    && ID_AerolineaComprar != "" && ID_Vuelo != "" && ID_Viaje_Compra != "" && ID_Cliente_Aero != "") {
+                                            if (ID_AerolineaComprar != null && ID_Vuelo != null && ID_Viaje_Compra != null && ID_Cliente_Aero != null && Usuario_Agencia != null
+                                                    && ID_AerolineaComprar != "" && ID_Vuelo != "" && ID_Viaje_Compra != "" && ID_Cliente_Aero != "" && Usuario_Agencia != "") {
                                                 try {
                                                     if (ID_AerolineaComprar.equals("1")) { //Si no funciona, probar con idaerolinea.equals("1")
                                                         boletoIngresado = WebServicesAerolinea_Cliente.comprarBoletoAgenciaUno(ID_Vuelo, ID_Cliente_Aero);
 
                                                     }
-                                                    if (ID_AerolineaComprar == "2") {
-                                                        // boletoIngresado = WebServicesAerolinea_Cliente2.comprarBoletoAgenciaUno(ID_Vuelo, ID_Cliente_Aero);
+                                                    if (ID_AerolineaComprar.equals("2")) {
+                                                        boletoIngresado = WebServicesAerolinea_Cliente2.comprarBoletoAgenciaUno(ID_Vuelo, ID_Cliente_Aero);
                                                     }
                                                     Conexion conexion2 = new Conexion();
-                                                    Connection connection2 = conexion.conectar();
+                                                    Connection connection2 = conexion2.conectar();
                                                     PreparedStatement ps2 = null;
-                                                    try {
-                                                        ps2 = connection2.prepareStatement("INSERT INTO boletos_comprados_agencia "
-                                                                + "(id_cliente_aerolinea, id_aerolinea, no_boleto, id_viaje_agencia, fecha_compra_boleto) values (?,?,?,?, sysdate)");
-                                                        ps2.setInt(1, Integer.parseInt(ID_Cliente_Aero));
-                                                        ps2.setInt(2, Integer.parseInt(ID_AerolineaComprar));
-                                                        ps2.setString(3, boletoIngresado);
-                                                        ps2.setInt(4, Integer.parseInt(ID_Viaje_Compra));
+                                                    if (boletoIngresado != null && boletoIngresado != "") {
+                                                        try {
+                                                            ps2 = connection2.prepareStatement("INSERT INTO boletos_comprados_agencia "
+                                                                    + "(id_cliente_aerolinea, id_aerolinea, no_boleto, id_viaje_agencia, usuario_agencia, fecha_compra_boleto) values (?,?,?,?,?, sysdate)");
+                                                            ps2.setInt(1, Integer.parseInt(ID_Cliente_Aero));
+                                                            ps2.setInt(2, Integer.parseInt(ID_AerolineaComprar));
+                                                            ps2.setString(3, boletoIngresado);
+                                                            ps2.setInt(4, Integer.parseInt(ID_Viaje_Compra));
+                                                            ps2.setString(5, Usuario_Agencia);
                                                         ps2.executeUpdate();
                                                         ps2.close();
                                                         connection2.close(); %>
@@ -438,9 +564,17 @@
                                             %>
                                         </div>
                                         <%
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                                out.println("Inserción NO exitosa del registro en la base de datos interna de la agencia del boleto " + boletoIngresado + ".");
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+
+                                        %>
+                                        <br>
+                                        <div class="alert alert-danger" role="alert">
+                                            <% out.println("Inserción NO exitosa del registro en la base de datos interna de la agencia del boleto " + boletoIngresado + ".");
+                                            %>
+                                        </div>
+                                        <%
+                                                }
                                             }
 
                                         %>
@@ -466,8 +600,6 @@
                                     </div>
 
 
-
-
                                 </form>
                             </div>
                         </div>
@@ -482,21 +614,105 @@
 
                             <div class="row">
 
-                                <form action="CancelarBoleto.jsp" method="post" class="form-signin">
+                                <form action="" method="post" class="form-signin">
 
                                     <div class="col-md-6">
                                         <label>ID de Boleto a Cancelar:</label>
-                                        <input  id="ID_Boleto_Comprado" name="ID_Boleto_Comprado" type="text" class="form-control"  onchange="cargarListado();" value= "" > 
+                                        <input  id="ID_Boleto_A_Cancelar" name="ID_Boleto_A_Cancelar" type="text" class="form-control"  onchange="cargarListado();" value= "" > 
                                     </div>
                                     <div class="col-md-6">
                                         <label>ID de Aerolinea de ese Boleto:</label>
-                                        <input  id="ID_Aerolinea_BoletoCancelar" name="ID_Aerolinea_BoletoCancelar" type="text" class="form-control"  onchange="cargarListado();" value= "" > 
+                                        <input  id="ID_Aerolinea_Boleto_Cancelar" name="ID_Aerolinea_Boleto_Cancelar" type="text" class="form-control"  onchange="cargarListado();" value= "" > 
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Usuario de Agencia que Cancela:</label>
+                                        <input  id="ID_Usuario_Cancela" name="ID_Usuario_Cancela" type="text" class="form-control"  onchange="cargarListado();" value= "" > 
                                     </div>
 
                                     <div class="col-md-6">
                                         <br>
                                         <button class="btn btn-lg btn-primary btn-block" type="submit">Cancelar Boleto</button>
                                     </div>
+                                    <div class="col-md-6">
+                                        <br>
+
+                                        <%
+                                            String ID_Boleto_A_Cancelar = "", ID_Aerolinea_Boleto_Cancelar = "", ID_Usuario_Cancela = "";
+                                            Boolean boletoCancelado = false;
+                                            if (request.getParameter("ID_Boleto_A_Cancelar") != null || ID_Boleto_A_Cancelar != "") {
+                                                ID_Boleto_A_Cancelar = request.getParameter("ID_Boleto_A_Cancelar");
+                                            }
+                                            if (request.getParameter("ID_Aerolinea_Boleto_Cancelar") != null || ID_Aerolinea_Boleto_Cancelar != "") {
+                                                ID_Aerolinea_Boleto_Cancelar = request.getParameter("ID_Aerolinea_Boleto_Cancelar");
+                                            }
+                                            if (request.getParameter("ID_Usuario_Cancela") != null || ID_Usuario_Cancela != "") {
+                                                ID_Usuario_Cancela = request.getParameter("ID_Usuario_Cancela");
+                                            }
+                                        %>
+
+                                        <%
+                                            if (ID_Boleto_A_Cancelar != null && ID_Aerolinea_Boleto_Cancelar != null && ID_Usuario_Cancela != null
+                                                    && ID_Boleto_A_Cancelar != "" && ID_Aerolinea_Boleto_Cancelar != "" && ID_Usuario_Cancela != "") {
+                                                try {
+                                                    if (ID_Aerolinea_Boleto_Cancelar.equals("1")) { //Si no funciona, probar con idaerolinea.equals("1")
+                                                        boletoCancelado = WebServicesAerolinea_Cliente.cancelarBoleto(Integer.parseInt(ID_Boleto_A_Cancelar));
+
+                                                    }
+                                                    if (ID_Aerolinea_Boleto_Cancelar == "2") {
+                                                        boletoCancelado = WebServicesAerolinea_Cliente2.cancelarBoleto(Integer.parseInt(ID_Boleto_A_Cancelar));
+                                                    }
+                                                    Conexion conexion3 = new Conexion();
+                                                    Connection connection3 = conexion3.conectar();
+                                                    PreparedStatement ps3 = null;
+                                                    if (boletoCancelado) {
+                                                        try {
+                                                            ps3 = connection3.prepareStatement("UPDATE BOLETOS_COMPRADOS_AGENCIA SET BOLETO_CANCELADO = 1, FECHA_BOLETO_CANCELADO_AGENCIA = sysdate, "
+                                                                    + "USUARIO_CANCELACION = ? where NO_BOLETO = ?");
+                                                            ps3.setString(1, ID_Usuario_Cancela);
+                                                            ps3.setInt(2, Integer.parseInt(ID_Boleto_A_Cancelar));
+                                                        ps3.executeUpdate();
+                                                        ps3.close();
+                                                        connection3.close(); %>
+
+                                        <div class="alert alert-success" role="alert">
+                                            <% out.println("Registro exitoso de la cancelación del boleto " + ID_Boleto_A_Cancelar + " en la base de datos interna de la agencia.");
+                                            %>
+                                        </div>
+                                        <%
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        %>
+                                        <br>
+                                        <div class="alert alert-danger" role="alert">
+                                            <% out.println("Registro NO exitoso de la cancelación del boleto " + ID_Boleto_A_Cancelar + " en la base de datos interna de la agencia.");
+                                            %>
+                                        </div>
+                                        <%
+                                                }
+                                            }
+
+                                        %>
+
+                                        <div class="alert alert-success" role="alert">
+                                            <% out.println("Cancelación exitosa del boleto " + ID_Boleto_A_Cancelar + "  en la aerolínea " + ID_Aerolinea_Boleto_Cancelar + ".");
+                                            %>
+                                        </div>
+                                        <%
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+
+                                        %>
+                                        <br>
+                                        <div class="alert alert-danger" role="alert">
+                                            <% out.println("Error en la cancelación exitosa del boleto " + ID_Boleto_A_Cancelar + "  en la aerolínea " + ID_Aerolinea_Boleto_Cancelar + ".");
+                                            %>
+                                        </div>
+                                        <%
+                                                }
+                                            }
+                                        %>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>
@@ -505,18 +721,13 @@
                         <%
                             List<Vuelos> VuelosTraidos = new ArrayList<Vuelos>();
                             List<org.ws.Vuelos> VuelosTraidosNuevos = new ArrayList<Vuelos>();
-                            VuelosTraidos = WebServicesAerolinea_Cliente.getVuelos();   
-                                
-                            /*
+                            VuelosTraidos = WebServicesAerolinea_Cliente.getVuelos();
+
                             List<Vuelos> VuelosTraidos2 = new ArrayList<Vuelos>();
                             List<org.ws.Vuelos> VuelosTraidosNuevos2 = new ArrayList<Vuelos>();
                             VuelosTraidos2 = WebServicesAerolinea_Cliente2.getVuelos();
-                             */
-                        
-                        
-                        
-                        
-                        
+
+
                         %>
 
                         <br>             
@@ -538,8 +749,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%
-                                        for (int i = 0; i < VuelosTraidos.size(); i++) {
+                                    <%                                        for (int i = 0; i < VuelosTraidos.size(); i++) {
                                     %>
 
                                     <tr>
@@ -556,20 +766,33 @@
                                     <%
                                         }
                                     %>
-                                    
+
                                     <!-- Entre estos tags poner el DOS -->
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                   <!-- Entre estos tags poner el DOS -->
-                                    
-                                    
-                                    
-                                    
-                                    
+
+
+                                    <%
+                                        for (int i = 0; i < VuelosTraidos2.size(); i++) {
+                                    %>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td><%out.println(VuelosTraidos2.get(i).getIdVuelo());%></td>
+                                        <td><%out.println(VuelosTraidos2.get(i).getOrigenVuelo());%></td>
+                                        <td><%out.println(VuelosTraidos2.get(i).getDestinoVuelo());%></td>
+                                        <td><%out.println(VuelosTraidos2.get(i).getCapacidadVuelo());%></td>
+                                        <td><%out.println(VuelosTraidos2.get(i).getBoletosComprados());%></td>
+                                        <td><%out.println(VuelosTraidos2.get(i).getFechaPartida());%></td>
+                                        <td><%out.println(VuelosTraidos2.get(i).getFechaLlegada());%></td>
+                                        <td><%out.println(VuelosTraidos2.get(i).getPrecioUnitario());%> </td> 
+                                    </tr>  
+                                    <%
+                                        }
+                                    %>
+
+
+
+                                    <!-- Entre estos tags poner el DOS -->
+
 
                                 </tbody>
 
@@ -582,4 +805,5 @@
             </div>  
         </div>  
     </div>   
+
 </body>                    
