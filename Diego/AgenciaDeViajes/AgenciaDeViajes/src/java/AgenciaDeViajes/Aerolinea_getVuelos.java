@@ -17,8 +17,8 @@ import org.ws.Vuelos;
  */
 public class Aerolinea_getVuelos {
     //public static java.util.List <Vuelos> Aerolinea_getVuelos () {
-    public static java.util.List<org.ws.Vuelos> Aerolinea_getVuelos(){
-    //public static void main(String[] args) {
+    //public static java.util.List<org.ws.Vuelos> Aerolinea_getVuelos(){
+    public static void main(String[] args) {
         
         List<Vuelos> VuelosTraidos = new ArrayList<Vuelos>();
         List<org.ws.Vuelos> NuevosVuelos = new ArrayList<Vuelos>();
@@ -39,7 +39,7 @@ public class Aerolinea_getVuelos {
         System.out.println("Cantidad de vuelos encontrados: " + VuelosTraidos.size());
         System.out.println(Arrays.toString(VuelosTraidos.toArray()));
         for(int i=0;i<VuelosTraidos.size();i++){
-        System.out.println(VuelosTraidos.get(i).getIdVuelo() + " " +  VuelosTraidos.get(i).getOrigenVuelo() + " " +  VuelosTraidos.get(i).getDestinoVuelo());
+        //System.out.println(VuelosTraidos.get(i).getIdVuelo() + " " +  VuelosTraidos.get(i).getOrigenVuelo() + " " +  VuelosTraidos.get(i).getDestinoVuelo());
        /*
         Vuelos vuelo = new Vuelos(VuelosTraidos.get(i).getIdVuelo(), VuelosTraidos.get(i).getOrigenVuelo(), VuelosTraidos.get(i).getDestinoVuelo(),
         VuelosTraidos.get(i).getCapacidadVuelo(), VuelosTraidos.get(i).getBoletosComprados(),  VuelosTraidos.get(i).getFechaPartida(),
@@ -58,6 +58,7 @@ public class Aerolinea_getVuelos {
         NuevosVuelos.add(vuelo);
         }
         for (int i = 0; i < NuevosVuelos.size(); i++) {
+                System.out.println("Nuevo vuelo importado de webservice de aerolinea: ");
                System.out.println(NuevosVuelos.get(i).getIdVuelo());
                System.out.println(NuevosVuelos.get(i).getOrigenVuelo());
                System.out.println(NuevosVuelos.get(i).getDestinoVuelo());
@@ -67,10 +68,10 @@ public class Aerolinea_getVuelos {
                System.out.println(NuevosVuelos.get(i).getFechaLlegada());
                System.out.println(NuevosVuelos.get(i).getPrecioUnitario());
                 }
-        return NuevosVuelos;
+       // return NuevosVuelos;
            
-            //System.out.println("La data del usuario = " + usuarioData + "\n"); 
-        //getVuelos().forEach(System.out::println);
+       // System.out.println("La data del usuario = " + usuarioData + "\n"); 
+        getVuelos().forEach(System.out::println);
     }
     private static java.util.List<org.ws.Vuelos> getVuelos() {
         org.ws.OperacionesAerolinea_Service service = new org.ws.OperacionesAerolinea_Service();

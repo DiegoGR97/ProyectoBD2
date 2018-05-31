@@ -6,9 +6,9 @@
     </service>
   </services>
   <clients>
-    <client name="OperacionesAerolinea">
-      <wsdl-url>http://192.168.1.25:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsdl-url>
-      <local-wsdl-file>192.168.1.25_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl</local-wsdl-file>
+    <client name="OperacionesAerolineaDos">
+      <wsdl-url>http://192.168.43.96:8080/ServidorAerolineaTres/OperacionesAerolineaDos?WSDL</wsdl-url>
+      <local-wsdl-file>192.168.43.96_8080/ServidorAerolineaTres/OperacionesAerolineaDos.wsdl</local-wsdl-file>
       <package-name>org.ws</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -26,7 +26,39 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.1.25:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsimport-option-value>
+          <wsimport-option-value>http://192.168.43.96:8080/ServidorAerolineaTres/OperacionesAerolineaDos?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="OperacionesAerolinea">
+      <wsdl-url>http://192.168.43.92:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsdl-url>
+      <local-wsdl-file>192.168.43.92_8080/ServidorAerolineaUno/OperacionesAerolinea.wsdl</local-wsdl-file>
+      <package-name>org.ws</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://192.168.43.92:8080/ServidorAerolineaUno/OperacionesAerolinea?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

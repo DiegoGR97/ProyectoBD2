@@ -1,0 +1,141 @@
+@startuml
+annotation javax.jws.WebMethod
+annotation javax.jws.WebParam
+annotation javax.jws.WebResult
+annotation javax.jws.WebService
+annotation javax.xml.bind.annotation.XmlAccessorType
+annotation javax.xml.bind.annotation.XmlElement
+annotation javax.xml.bind.annotation.XmlElementDecl
+annotation javax.xml.bind.annotation.XmlRegistry
+annotation javax.xml.bind.annotation.XmlSeeAlso
+annotation javax.xml.bind.annotation.XmlType
+annotation javax.xml.ws.Action
+annotation javax.xml.ws.RequestWrapper
+annotation javax.xml.ws.ResponseWrapper
+annotation javax.xml.ws.WebEndpoint
+annotation javax.xml.ws.WebServiceClient
+class clasesdeproyecto.ClasesDeProyecto
+class java.net.MalformedURLException
+class java.net.URL
+class java.util.ArrayList
+class java.util.List
+class javax.xml.bind.JAXBElement
+class javax.xml.bind.annotation.XmlAccessType
+class javax.xml.namespace.QName
+class javax.xml.ws.Service
+class javax.xml.ws.WebServiceException
+class javax.xml.ws.WebServiceFeature
+class org.ws.CancelarBoleto
+class org.ws.CancelarBoletoResponse
+class org.ws.Clientes
+class org.ws.ComprarBoletoAgenciaUno
+class org.ws.ComprarBoletoAgenciaUnoResponse
+class org.ws.GetCertainVuelos
+class org.ws.GetCertainVuelosResponse
+class org.ws.GetClientes
+class org.ws.GetClientesResponse
+class org.ws.GetOrigenDestino
+class org.ws.GetOrigenDestinoResponse
+class org.ws.GetVuelos
+class org.ws.GetVuelosResponse
+class org.ws.NuevoCliente
+class org.ws.NuevoClienteResponse
+class org.ws.ObjectFactory
+class org.ws.OperacionesAerolinea_Service
+class org.ws.OrigenDestinoVuelos
+class org.ws.Vuelos
+interface org.ws.OperacionesAerolinea
+org.ws.CancelarBoleto ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.CancelarBoleto ..> javax.xml.bind.annotation.XmlElement
+org.ws.CancelarBoleto ..> javax.xml.bind.annotation.XmlType
+org.ws.CancelarBoleto ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.CancelarBoletoResponse ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.CancelarBoletoResponse ..> javax.xml.bind.annotation.XmlElement
+org.ws.CancelarBoletoResponse ..> javax.xml.bind.annotation.XmlType
+org.ws.CancelarBoletoResponse ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.Clientes ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.Clientes ..> javax.xml.bind.annotation.XmlElement
+org.ws.Clientes ..> javax.xml.bind.annotation.XmlType
+org.ws.Clientes ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.ComprarBoletoAgenciaUno ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.ComprarBoletoAgenciaUno ..> javax.xml.bind.annotation.XmlElement
+org.ws.ComprarBoletoAgenciaUno ..> javax.xml.bind.annotation.XmlType
+org.ws.ComprarBoletoAgenciaUno ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.ComprarBoletoAgenciaUnoResponse ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.ComprarBoletoAgenciaUnoResponse ..> javax.xml.bind.annotation.XmlElement
+org.ws.ComprarBoletoAgenciaUnoResponse ..> javax.xml.bind.annotation.XmlType
+org.ws.ComprarBoletoAgenciaUnoResponse ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.GetCertainVuelos ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.GetCertainVuelos ..> javax.xml.bind.annotation.XmlType
+org.ws.GetCertainVuelos ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.GetCertainVuelosResponse ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.GetCertainVuelosResponse ..> javax.xml.bind.annotation.XmlElement
+org.ws.GetCertainVuelosResponse ..> javax.xml.bind.annotation.XmlType
+org.ws.GetCertainVuelosResponse ..> java.util.ArrayList
+org.ws.GetCertainVuelosResponse ..> java.util.List
+org.ws.GetCertainVuelosResponse ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.GetClientes ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.GetClientes ..> javax.xml.bind.annotation.XmlType
+org.ws.GetClientes ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.GetClientesResponse ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.GetClientesResponse ..> javax.xml.bind.annotation.XmlElement
+org.ws.GetClientesResponse ..> javax.xml.bind.annotation.XmlType
+org.ws.GetClientesResponse ..> java.util.ArrayList
+org.ws.GetClientesResponse ..> java.util.List
+org.ws.GetClientesResponse ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.GetOrigenDestino ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.GetOrigenDestino ..> javax.xml.bind.annotation.XmlType
+org.ws.GetOrigenDestino ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.GetOrigenDestinoResponse ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.GetOrigenDestinoResponse ..> javax.xml.bind.annotation.XmlElement
+org.ws.GetOrigenDestinoResponse ..> javax.xml.bind.annotation.XmlType
+org.ws.GetOrigenDestinoResponse ..> java.util.ArrayList
+org.ws.GetOrigenDestinoResponse ..> java.util.List
+org.ws.GetOrigenDestinoResponse ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.GetVuelos ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.GetVuelos ..> javax.xml.bind.annotation.XmlType
+org.ws.GetVuelos ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.GetVuelosResponse ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.GetVuelosResponse ..> javax.xml.bind.annotation.XmlElement
+org.ws.GetVuelosResponse ..> javax.xml.bind.annotation.XmlType
+org.ws.GetVuelosResponse ..> java.util.ArrayList
+org.ws.GetVuelosResponse ..> java.util.List
+org.ws.GetVuelosResponse ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.NuevoCliente ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.NuevoCliente ..> javax.xml.bind.annotation.XmlElement
+org.ws.NuevoCliente ..> javax.xml.bind.annotation.XmlType
+org.ws.NuevoCliente ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.NuevoClienteResponse ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.NuevoClienteResponse ..> javax.xml.bind.annotation.XmlElement
+org.ws.NuevoClienteResponse ..> javax.xml.bind.annotation.XmlType
+org.ws.NuevoClienteResponse ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.ObjectFactory ..> javax.xml.bind.annotation.XmlElementDecl
+org.ws.ObjectFactory ..> javax.xml.bind.annotation.XmlRegistry
+org.ws.ObjectFactory ..> javax.xml.bind.JAXBElement
+org.ws.ObjectFactory ..> javax.xml.namespace.QName
+org.ws.OperacionesAerolinea_Service ..> javax.xml.ws.WebEndpoint
+org.ws.OperacionesAerolinea_Service ..> javax.xml.ws.WebServiceClient
+org.ws.OperacionesAerolinea_Service ..> java.net.MalformedURLException
+org.ws.OperacionesAerolinea_Service ..> java.net.URL
+org.ws.OperacionesAerolinea_Service ..> javax.xml.namespace.QName
+org.ws.OperacionesAerolinea_Service --|> javax.xml.ws.Service
+org.ws.OperacionesAerolinea_Service ..> javax.xml.ws.WebServiceException
+org.ws.OperacionesAerolinea_Service ..> javax.xml.ws.WebServiceFeature
+org.ws.OrigenDestinoVuelos ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.OrigenDestinoVuelos ..> javax.xml.bind.annotation.XmlElement
+org.ws.OrigenDestinoVuelos ..> javax.xml.bind.annotation.XmlType
+org.ws.OrigenDestinoVuelos ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.Vuelos ..> javax.xml.bind.annotation.XmlAccessorType
+org.ws.Vuelos ..> javax.xml.bind.annotation.XmlElement
+org.ws.Vuelos ..> javax.xml.bind.annotation.XmlType
+org.ws.Vuelos ..> javax.xml.bind.annotation.XmlAccessType
+org.ws.OperacionesAerolinea ..> javax.jws.WebMethod
+org.ws.OperacionesAerolinea ..> javax.jws.WebParam
+org.ws.OperacionesAerolinea ..> javax.jws.WebResult
+org.ws.OperacionesAerolinea ..> javax.jws.WebService
+org.ws.OperacionesAerolinea ..> javax.xml.bind.annotation.XmlSeeAlso
+org.ws.OperacionesAerolinea ..> javax.xml.ws.Action
+org.ws.OperacionesAerolinea ..> javax.xml.ws.RequestWrapper
+org.ws.OperacionesAerolinea ..> javax.xml.ws.ResponseWrapper
+org.ws.OperacionesAerolinea ..> java.util.List
+@enduml

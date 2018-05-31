@@ -4,24 +4,6 @@
 <xsd:import namespace="http://ws.org/" schemaLocation="http://192.168.43.92:8080/ServidorAerolineaUno/OperacionesAerolinea?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="getCertainVuelos">
-<part name="parameters" element="tns:getCertainVuelos"/>
-</message>
-<message name="getCertainVuelosResponse">
-<part name="parameters" element="tns:getCertainVuelosResponse"/>
-</message>
-<message name="nuevoCliente">
-<part name="parameters" element="tns:nuevoCliente"/>
-</message>
-<message name="nuevoClienteResponse">
-<part name="parameters" element="tns:nuevoClienteResponse"/>
-</message>
-<message name="comprarBoletoAgenciaUno">
-<part name="parameters" element="tns:comprarBoletoAgenciaUno"/>
-</message>
-<message name="comprarBoletoAgenciaUnoResponse">
-<part name="parameters" element="tns:comprarBoletoAgenciaUnoResponse"/>
-</message>
 <message name="getVuelos">
 <part name="parameters" element="tns:getVuelos"/>
 </message>
@@ -34,19 +16,37 @@
 <message name="getClientesResponse">
 <part name="parameters" element="tns:getClientesResponse"/>
 </message>
+<message name="nuevoCliente">
+<part name="parameters" element="tns:nuevoCliente"/>
+</message>
+<message name="nuevoClienteResponse">
+<part name="parameters" element="tns:nuevoClienteResponse"/>
+</message>
+<message name="getOrigenDestino">
+<part name="parameters" element="tns:getOrigenDestino"/>
+</message>
+<message name="getOrigenDestinoResponse">
+<part name="parameters" element="tns:getOrigenDestinoResponse"/>
+</message>
+<message name="cancelarBoleto">
+<part name="parameters" element="tns:cancelarBoleto"/>
+</message>
+<message name="cancelarBoletoResponse">
+<part name="parameters" element="tns:cancelarBoletoResponse"/>
+</message>
+<message name="getCertainVuelos">
+<part name="parameters" element="tns:getCertainVuelos"/>
+</message>
+<message name="getCertainVuelosResponse">
+<part name="parameters" element="tns:getCertainVuelosResponse"/>
+</message>
+<message name="comprarBoletoAgenciaUno">
+<part name="parameters" element="tns:comprarBoletoAgenciaUno"/>
+</message>
+<message name="comprarBoletoAgenciaUnoResponse">
+<part name="parameters" element="tns:comprarBoletoAgenciaUnoResponse"/>
+</message>
 <portType name="OperacionesAerolinea">
-<operation name="getCertainVuelos">
-<input wsam:Action="http://ws.org/OperacionesAerolinea/getCertainVuelosRequest" message="tns:getCertainVuelos"/>
-<output wsam:Action="http://ws.org/OperacionesAerolinea/getCertainVuelosResponse" message="tns:getCertainVuelosResponse"/>
-</operation>
-<operation name="nuevoCliente">
-<input wsam:Action="http://ws.org/OperacionesAerolinea/nuevoClienteRequest" message="tns:nuevoCliente"/>
-<output wsam:Action="http://ws.org/OperacionesAerolinea/nuevoClienteResponse" message="tns:nuevoClienteResponse"/>
-</operation>
-<operation name="comprarBoletoAgenciaUno">
-<input wsam:Action="http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoRequest" message="tns:comprarBoletoAgenciaUno"/>
-<output wsam:Action="http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoResponse" message="tns:comprarBoletoAgenciaUnoResponse"/>
-</operation>
 <operation name="getVuelos">
 <input wsam:Action="http://ws.org/OperacionesAerolinea/getVuelosRequest" message="tns:getVuelos"/>
 <output wsam:Action="http://ws.org/OperacionesAerolinea/getVuelosResponse" message="tns:getVuelosResponse"/>
@@ -55,10 +55,39 @@
 <input wsam:Action="http://ws.org/OperacionesAerolinea/getClientesRequest" message="tns:getClientes"/>
 <output wsam:Action="http://ws.org/OperacionesAerolinea/getClientesResponse" message="tns:getClientesResponse"/>
 </operation>
+<operation name="nuevoCliente">
+<input wsam:Action="http://ws.org/OperacionesAerolinea/nuevoClienteRequest" message="tns:nuevoCliente"/>
+<output wsam:Action="http://ws.org/OperacionesAerolinea/nuevoClienteResponse" message="tns:nuevoClienteResponse"/>
+</operation>
+<operation name="getOrigenDestino">
+<input wsam:Action="http://ws.org/OperacionesAerolinea/getOrigenDestinoRequest" message="tns:getOrigenDestino"/>
+<output wsam:Action="http://ws.org/OperacionesAerolinea/getOrigenDestinoResponse" message="tns:getOrigenDestinoResponse"/>
+</operation>
+<operation name="cancelarBoleto">
+<input wsam:Action="http://ws.org/OperacionesAerolinea/cancelarBoletoRequest" message="tns:cancelarBoleto"/>
+<output wsam:Action="http://ws.org/OperacionesAerolinea/cancelarBoletoResponse" message="tns:cancelarBoletoResponse"/>
+</operation>
+<operation name="getCertainVuelos">
+<input wsam:Action="http://ws.org/OperacionesAerolinea/getCertainVuelosRequest" message="tns:getCertainVuelos"/>
+<output wsam:Action="http://ws.org/OperacionesAerolinea/getCertainVuelosResponse" message="tns:getCertainVuelosResponse"/>
+</operation>
+<operation name="comprarBoletoAgenciaUno">
+<input wsam:Action="http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoRequest" message="tns:comprarBoletoAgenciaUno"/>
+<output wsam:Action="http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoResponse" message="tns:comprarBoletoAgenciaUnoResponse"/>
+</operation>
 </portType>
 <binding name="OperacionesAerolineaPortBinding" type="tns:OperacionesAerolinea">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="getCertainVuelos">
+<operation name="getVuelos">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getClientes">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -76,25 +105,34 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="getOrigenDestino">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="cancelarBoleto">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getCertainVuelos">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="comprarBoletoAgenciaUno">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getVuelos">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getClientes">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

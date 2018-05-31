@@ -27,42 +27,6 @@ public interface OperacionesAerolinea {
 
     /**
      * 
-     * @param origen
-     * @param destino
-     * @return
-     *     returns java.util.List<org.ws.Vuelos>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCertainVuelos", targetNamespace = "http://ws.org/", className = "org.ws.GetCertainVuelos")
-    @ResponseWrapper(localName = "getCertainVuelosResponse", targetNamespace = "http://ws.org/", className = "org.ws.GetCertainVuelosResponse")
-    @Action(input = "http://ws.org/OperacionesAerolinea/getCertainVuelosRequest", output = "http://ws.org/OperacionesAerolinea/getCertainVuelosResponse")
-    public List<Vuelos> getCertainVuelos(
-        @WebParam(name = "origen", targetNamespace = "")
-        String origen,
-        @WebParam(name = "destino", targetNamespace = "")
-        String destino);
-
-    /**
-     * 
-     * @param idCliente
-     * @param idVuelo
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "comprarBoletoAgenciaUno", targetNamespace = "http://ws.org/", className = "org.ws.ComprarBoletoAgenciaUno")
-    @ResponseWrapper(localName = "comprarBoletoAgenciaUnoResponse", targetNamespace = "http://ws.org/", className = "org.ws.ComprarBoletoAgenciaUnoResponse")
-    @Action(input = "http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoRequest", output = "http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoResponse")
-    public String comprarBoletoAgenciaUno(
-        @WebParam(name = "id_vuelo", targetNamespace = "")
-        String idVuelo,
-        @WebParam(name = "id_cliente", targetNamespace = "")
-        String idCliente);
-
-    /**
-     * 
      * @return
      *     returns java.util.List<org.ws.Vuelos>
      */
@@ -135,5 +99,41 @@ public interface OperacionesAerolinea {
     public boolean cancelarBoleto(
         @WebParam(name = "id_boleto", targetNamespace = "")
         int idBoleto);
+
+    /**
+     * 
+     * @param origen
+     * @param destino
+     * @return
+     *     returns java.util.List<org.ws.Vuelos>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getCertainVuelos", targetNamespace = "http://ws.org/", className = "org.ws.GetCertainVuelos")
+    @ResponseWrapper(localName = "getCertainVuelosResponse", targetNamespace = "http://ws.org/", className = "org.ws.GetCertainVuelosResponse")
+    @Action(input = "http://ws.org/OperacionesAerolinea/getCertainVuelosRequest", output = "http://ws.org/OperacionesAerolinea/getCertainVuelosResponse")
+    public List<Vuelos> getCertainVuelos(
+        @WebParam(name = "origen", targetNamespace = "")
+        String origen,
+        @WebParam(name = "destino", targetNamespace = "")
+        String destino);
+
+    /**
+     * 
+     * @param idCliente
+     * @param idVuelo
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "comprarBoletoAgenciaUno", targetNamespace = "http://ws.org/", className = "org.ws.ComprarBoletoAgenciaUno")
+    @ResponseWrapper(localName = "comprarBoletoAgenciaUnoResponse", targetNamespace = "http://ws.org/", className = "org.ws.ComprarBoletoAgenciaUnoResponse")
+    @Action(input = "http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoRequest", output = "http://ws.org/OperacionesAerolinea/comprarBoletoAgenciaUnoResponse")
+    public String comprarBoletoAgenciaUno(
+        @WebParam(name = "id_vuelo", targetNamespace = "")
+        String idVuelo,
+        @WebParam(name = "id_cliente", targetNamespace = "")
+        String idCliente);
 
 }
