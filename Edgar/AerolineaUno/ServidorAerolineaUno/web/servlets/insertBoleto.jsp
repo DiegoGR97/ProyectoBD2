@@ -53,6 +53,6 @@
         %>
         <h1>Su número de boleto es: <%out.println(x);%></h1>
         
-        <a href="/ServidorAerolineaUno">Regresar a formulario</a>
+        <a href="../operaciones/cancelarBoleto.jsp">Regresar a formulario</a>
     </body>
 </html>

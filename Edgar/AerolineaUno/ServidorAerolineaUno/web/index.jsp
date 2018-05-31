@@ -45,6 +45,7 @@
                                 <li><a href="../ServidorAerolineaUno/operaciones/crearVuelo.jsp">Vuelo</a></li>
                                 <li><a href="../ServidorAerolineaUno/operaciones/crearCliente.jsp">Cliente</a></li>
                                 <li><a href="../ServidorAerolineaUno/operaciones/crearViaje.jsp">Viaje</a></li>
+                                <li><a href="../ServidorAerolineaUno/operaciones/crearAgenciaViaje.jsp">Agencia de Viaje</a></li>
                             </ul>
                         </li>
                         <!-- DropDown Menu -->

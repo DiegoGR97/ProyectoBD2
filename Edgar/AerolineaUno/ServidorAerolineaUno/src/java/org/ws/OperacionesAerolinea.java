@@ -5,19 +5,27 @@
  */
 package org.ws;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import org.datos.Vuelos;
 import org.datos.Clientes;
+import org.datos.OrigenDestinoVuelos;
 import org.datos.Viajes;
 import org.db.Conexion;
 import org.db.VuelosDao;
@@ -157,7 +165,6 @@ public class OperacionesAerolinea {
         Connection connection = conexion.conectar();
         PreparedStatement ps = null;
         ResultSet rs = null;
-        int agenciaUno = 2;
         int x;
         try {
             ps = connection.prepareStatement("{CALL crear_boleto_agencia_uno(?,?)}");
@@ -178,5 +185,154 @@ public class OperacionesAerolinea {
             return "Error" + ex;
         }
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "cancelarBoleto")
+    public boolean cancelarBoleto(@WebParam(name = "id_boleto") int id_boleto) {
+        //TODO write your implementation code here:
+         
+            Conexion conexion = new Conexion();
+            Connection connection = conexion.conectar();
+            CallableStatement cs = null;
+            ResultSet rs = null;
+            String id_boleto_comprado = id_boleto+"";
+            String email_cliente = "";
+            String email_agencia = "";
+            try {
+                cs = connection.prepareCall("{CALL cancelar_boleto(?)}");
+                cs.setInt(1, Integer.parseInt(id_boleto_comprado));
+                cs.executeUpdate();
+                cs.close();
+                
+                rs = connection.createStatement().executeQuery("select c.email_cliente from clientes c, boletos_comprados bc where bc.id_cliente = c.ID_CLIENTE and bc.id_boleto_comprado="+id_boleto);
+                rs.next();
+                email_cliente = rs.getString("email_cliente");
+                try {
+                    String host = "smtp.gmail.com";
+                    String user = "vallejo151328@unis.edu.gt";
+                    String pass = "4B11CDED6A=";
+                    String to = email_cliente;
+                    String from = "vallejo151328@unis.edu.gt";
+                    String subject = "VUELO CANCELADO A CLIENTE";
+                    String messageText = "Lamentamos informarle que su vuelo con número de boleto " + id_boleto_comprado + " ha sido cancelado.";
+                    boolean sessionDebug = false;
+
+                    Properties properties = System.getProperties();
+                    properties.put("mail.smtp.starttls.enable", true);
+                    properties.put("mail.smtp.host", host);
+                    properties.put("mail.smtp.port", "587");
+                    properties.put("mail.smtp.auth", "true");
+                    properties.put("mail.smtp.starttls.required","true");
+
+                    java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+                    Session mailSession = Session.getDefaultInstance(properties, null);
+                    mailSession.setDebug(sessionDebug);
+                    Message msg = new MimeMessage(mailSession);
+                    msg.setFrom(new InternetAddress(from));
+                    InternetAddress[] address = {new InternetAddress(to)};
+                    msg.setRecipients(Message.RecipientType.TO, address);
+                    msg.setSubject(subject);
+                    //msg.setSentDate(new Date());
+                    msg.setText(messageText);
+
+                    Transport transport = mailSession.getTransport("smtp");
+                    transport.connect(host, user, pass);
+                    transport.sendMessage(msg, msg.getAllRecipients());
+                    transport.close();
+                } catch(Exception e) {
+                    System.out.println("Error al enviar correo al cliente.\n" + e);
+                    return false;
+                }
+            } catch(Exception e){
+                e.printStackTrace();
+                System.out.println("Error al tratar de borrar el boleto \n"+e);
+                System.out.println("No se ha podido enviar el correo al cliente");
+                return false;
+            }
+            //MENSAJE A AGENCIA
+            try {
+                rs = connection.createStatement().executeQuery("select av.email_agencia from agencias_viajes av, boletos_comprados bc where bc.id_agencia_viaje = av.id_agencia_viaje and bc.id_boleto_comprado="+id_boleto);
+                rs.next();
+                email_agencia = rs.getString("email_agencia");
+                if(email_agencia.equals("sinAgencia")){
+                    
+                } else{
+                    try {
+                    String host = "smtp.gmail.com";
+                    String user = "vallejo151328@unis.edu.gt";
+                    String pass = "4B11CDED6A=";
+                    String to = email_agencia;
+                    String from = "vallejo151328@unis.edu.gt";
+                    String subject = "VUELO CANCELADO A LA AGENCIA";
+                    String messageText = "Lamentamos informarle que su compra de vuelo con número de boleto " + id_boleto_comprado + " ha sido cancelado.";
+                    boolean sessionDebug = false;
+
+                    Properties properties = System.getProperties();
+                    properties.put("mail.smtp.starttls.enable", true);
+                    properties.put("mail.smtp.host", host);
+                    properties.put("mail.smtp.port", "587");
+                    properties.put("mail.smtp.auth", "true");
+                    properties.put("mail.smtp.starttls.required","true");
+
+                    java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+                    Session mailSession = Session.getDefaultInstance(properties, null);
+                    mailSession.setDebug(sessionDebug);
+                    Message msg = new MimeMessage(mailSession);
+                    msg.setFrom(new InternetAddress(from));
+                    InternetAddress[] address = {new InternetAddress(to)};
+                    msg.setRecipients(Message.RecipientType.TO, address);
+                    msg.setSubject(subject);
+                    //msg.setSentDate(new Date());
+                    msg.setText(messageText);
+
+                    Transport transport = mailSession.getTransport("smtp");
+                    transport.connect(host, user, pass);
+                    transport.sendMessage(msg, msg.getAllRecipients());
+                    transport.close();
+                    } catch(Exception e) {
+                    System.out.println("Error al enviar correo a la agencia.\n" + e);
+                    return false;
+                    }
+                }
+                
+                connection.close();
+                return true;
+            } catch(Exception e){
+                e.printStackTrace();
+                System.out.println("Error al tratar de borrar el boleto \n"+e);
+                System.out.println("No se ha podido enviar el correo a la agencia");
+                return false;
+            }
+    }
+
+    /**
+     * Web service operation
+     * @return 
+     */
+    @WebMethod(operationName = "getOrigenDestino")
+    public List<OrigenDestinoVuelos> getOrigenDestino() {
+        Conexion conexion = new Conexion();
+        Connection connection = conexion.conectar();
+        List<OrigenDestinoVuelos> origenDestinoVuelosData = new ArrayList<OrigenDestinoVuelos>();
+        OrigenDestinoVuelos origenDestinoVuelos = null;
+        ResultSet rs = null;
+        try {
+            rs = connection.createStatement().executeQuery("SELECT DISTINCT origen_vuelo, destino_vuelo FROM vuelos");
+            while(rs.next()){
+                origenDestinoVuelos = new OrigenDestinoVuelos();
+                origenDestinoVuelos.setOrigen_vuelo(rs.getString("origen_vuelo"));
+                origenDestinoVuelos.setDestino_vuelo(rs.getString("destino_vuelo"));
+                origenDestinoVuelosData.add(origenDestinoVuelos);
+            }
+            rs.close();
+            connection.close();
+            return origenDestinoVuelosData;
+        } catch(SQLException sqle){
+            sqle.printStackTrace();
+            return null;
+        }
+    }   
 }
 
